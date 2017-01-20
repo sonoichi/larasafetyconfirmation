@@ -27,7 +27,7 @@
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager}}</td>
+      <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
@@ -62,8 +62,8 @@
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
-      <td>住所</td>
       <td>メールアドレス</td>
+      <td>住所</td>
       <td>所属部署</td>
       <td>責任者名</td>
       <td>責任者連絡先</td>
@@ -71,17 +71,18 @@
 
 
 @foreach($worker_lists as $worker_list)
+@if(($worker_list->department)=='営業') 
 <tr>
       <td>{{$worker_list->name}}</td>
-      あああああ
-      <td>{{$worker_list->tell}}</td>
-      <td>{{$worker_list->email}}</td>
+      <td><a href="tel:{{$worker_list->tell}}">{{$worker_list->tell}}</a></td>
+      <td><a href="mailto:{{$worker_list->email}}">{{$worker_list->email}}</a></td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager}}</td>
+      <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
+@endif
 @endforeach
 
   </table>
@@ -102,17 +103,18 @@
 
 
 @foreach($worker_lists as $worker_list)
+@if(($worker_list->department)=='営業第二') 
 <tr>
       <td>{{$worker_list->name}}</td>
-      いいいいい
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager}}</td>
+      <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
+@endif
 @endforeach
 
   </table>
@@ -133,16 +135,18 @@
 
 
 @foreach($worker_lists as $worker_list)
+@if(($worker_list->department)=='営業第三') 
 <tr>
       <td>{{$worker_list->name}}</td>
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager}}</td>
+      <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
+@endif
 @endforeach
 
   </table>
@@ -163,16 +167,18 @@
 
 
 @foreach($worker_lists as $worker_list)
+@if(($worker_list->department)=='営業第四') 
 <tr>
       <td>{{$worker_list->name}}</td>
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager}}</td>
+      <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
+@endif
 @endforeach
 
   </table>
@@ -193,16 +199,18 @@
 
 
 @foreach($worker_lists as $worker_list)
+@if(($worker_list->department)=='営業第五') 
 <tr>
       <td>{{$worker_list->name}}</td>
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager}}</td>
+      <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
+@endif
 @endforeach
 
   </table>
