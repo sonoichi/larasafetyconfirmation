@@ -150,8 +150,7 @@ class LoginController extends Controller
     }
 
     public function dbedit($id){
-        $id = 12;
-        return view('debug/{id}',$id);
+        return　('test');
     }
 
 
