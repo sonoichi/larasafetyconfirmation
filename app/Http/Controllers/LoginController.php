@@ -148,4 +148,11 @@ class LoginController extends Controller
           //print_r($users); //確認用
           return view('debug',compact('users'));
     }
+
+    public function dbedit($id){
+        $id = 12;
+        return view('debug/{id}',$id);
+    }
+
+
 }

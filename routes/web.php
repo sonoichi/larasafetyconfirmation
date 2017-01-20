@@ -40,8 +40,9 @@ Route::post('/employee/post','SafeController@store');
 //仮：DB接続確認用ルート
 
 
-//リスト表示確認
+//デバッグコード
 Route::get('/debug','LoginController@dbshow');
+Route::get('debug/{id}', 'LoginController@dbedit');
 
 /********************************
 *********************************/
