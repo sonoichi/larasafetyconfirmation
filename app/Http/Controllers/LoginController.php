@@ -126,18 +126,26 @@ class LoginController extends Controller
 
 
     public function dbshow(){
-        $users = DB::table('safe_info')->get();
+        // $users = DB::table('safe_info')->get();
         
-        foreach ($users as $user) {
-            //echo $user->safety;
-            //echo $user->work_id;
-            $currentID = $user->work_id;
-            //echo $currentID.'Login Cotrollerから';
-            $worker_lists['worker_lists'] = DB::table('worker_list')->get();
-            //echo $list;
-        }
+        // foreach ($users as $user) {
+        //     //echo $user->safety;
+        //     //echo $user->work_id;
+        //     $currentID = $user->work_id;
+        //     //echo '<br/>'.$currentID.'Login Cotrollerから<br/>';
+        //     $worker_lists['worker_lists'] = DB::table('worker_list')->where('work_id', $currentID)->get();
+        //     $IDdata[] []= $worker_lists['worker_lists'];
+        //     //print_r($IDdata);
+        // }
         
-        //return view('debug', ['users' => $users]); 
-        return view('debug', $worker_lists); 
+        // //return view('debug', ['users' => $users]); 
+        // return view('debug', $IDdata); 
+
+        $users = DB::table('safe_info')
+          ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
+          ->whereNotIn('safe_info.safety', ['問題なし'])
+          ->get();
+          //print_r($users); //確認用
+          return view('debug',compact('users'));
     }
 }
