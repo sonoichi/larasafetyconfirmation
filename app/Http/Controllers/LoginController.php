@@ -150,7 +150,7 @@ class LoginController extends Controller
     }
 
     public function dbedit($id){
-        return　('test');
+        return "Hello";
     }
 
 
