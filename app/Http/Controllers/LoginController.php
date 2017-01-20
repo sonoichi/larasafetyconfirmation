@@ -1,4 +1,10 @@
 <?php
+/*
+修正日
+担当
+
+*/
+
 
 namespace App\Http\Controllers;
 
@@ -10,6 +16,12 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+
+// メソッド一覧
+/*
+  概要
+
+*/
 
 class LoginController extends Controller
 {
@@ -33,6 +45,8 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout','employee.confirm','charge.list']);
     }
 
+    // メソッドの概要:詳細
+    // パラメータの説明
     //ログイン認証設定
     public function getlogin()
     {
@@ -46,7 +60,37 @@ class LoginController extends Controller
 
     public function postlogin()
     {
-       // return view('employee.login');
+        /*
+        $credentials = [
+            'work_id'=>Input::get('work_id'),
+            'password'=>Input::get('password')
+        ];
+
+        $rules = [
+            'work_id'=>'required',
+            'password'=>'required'
+        ];
+
+        $messages = array(
+            'work_id.required' => '社員IDを正しく入力してください。',
+            'password.required' => 'パスワードを正しく入力してください。',
+        );
+
+        $validator = Validator::make($credentials, $rules, $messages);
+
+        if ($validator->passes()) {
+            if (Auth::attempt($credentials)) {
+
+            }else{
+                return Redirect::back()->withInput();
+            }
+        }else{
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        */
+        return view('employee.confirm');
     }
 
     public function getlogout()
@@ -77,10 +121,23 @@ class LoginController extends Controller
         $safeMember->comment = $comment;
 
         $safeMember->save();
-        return '保存しました';             
+        return '保存しました';            
     }
-    
 
- 
 
+    public function dbshow(){
+        $users = DB::table('safe_info')->get();
+        
+        foreach ($users as $user) {
+            //echo $user->safety;
+            //echo $user->work_id;
+            $currentID = $user->work_id;
+            //echo $currentID.'Login Cotrollerから';
+            $worker_lists['worker_lists'] = DB::table('worker_list')->get();
+            //echo $list;
+        }
+        
+        //return view('debug', ['users' => $users]); 
+        return view('debug', $worker_lists); 
+    }
 }

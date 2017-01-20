@@ -1,12 +1,17 @@
 @extends('layout')
 
 @section('content')
+<!-- リストを表示する
+  // ルーチンの内容 
+  // どこから呼ばれる
+  // 
+
+-->
 <div class="container">
   <h2>安否確認リスト</h2>
-  <p style="text-align:right;">ようこそ。責任者：(())さん</p></br>
+  <p style="text-align:right;">ようこそ。責任者：さん</p></br>
   <a href="{{ action('LoginController@charge') }}"><p style="text-align:right;">戻る</p></a>
   <hr>
-
 <!-- 確認用
   <table class="table" style="margin:0 12px;">
     <tr>
@@ -70,8 +75,9 @@
     </tr>
 
 
-@foreach($worker_lists as $worker_list)
-@if(($worker_list->department)=='営業') 
+
+  
+
 <tr>
       <td>{{$worker_list->name}}</td>
       <td><a href="tel:{{$worker_list->tell}}">{{$worker_list->tell}}</a></td>
@@ -82,8 +88,8 @@
       <td>{{$worker_list->manager_tell}}</td>
       <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
 </tr>
-@endif
-@endforeach
+
+
 
   </table>
 

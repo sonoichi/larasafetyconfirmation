@@ -11,6 +11,9 @@
 |
 */
 
+// 画面の一覧
+// e.g.) index -> login
+
 Route::get('/', function () {
     return view('index');
 });
@@ -31,10 +34,14 @@ Route::post('/employee/confirm','LoginController@postlogin');
 Route::get('/index', 'LoginController@getLogout');
 
 //安否確認DB処理
-Route::post('/employee/confirm','SafeController@store');
+//Route::get('/employee/post','SafeController@store'); //get Errorになる
+Route::post('/employee/post','SafeController@store');
 
 //仮：DB接続確認用ルート
 
+
+//リスト表示確認
+Route::get('/debug','LoginController@dbshow');
 
 /********************************
 *********************************/
