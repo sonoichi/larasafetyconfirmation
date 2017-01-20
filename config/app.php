@@ -230,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,  // 追加
         'Html' => Collective\Html\HtmlFacade::class,  // 追加
+        'Input' => Illuminate\Support\Facades\Input::class, //追加
     ],
 
 ];

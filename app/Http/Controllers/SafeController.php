@@ -10,16 +10,18 @@ class SafeController extends Controller
     public function store(Request $request)
     {
         $input = \Request::all();
-        //確認用 
-         print_r($input);
+        //確認用 print_r($input);
 
         DB::insert('insert into safe_info(safety, comment, work_id) values (?, ?, ?)', 
-        [$_POST['safety'],$_POST['comment'], 1]);
+        [$_POST['safety'],$_POST['comment'], $_POST['work_id']]);
         //Safe::create($input);
          //リクエストの確認
         //echo $_POST['safety'];
        // //echo $_POST['comment'];
         //print "<sctipt>alert('送信していいですか');</script>";
+
+        
+
         return '送信されました';
     }
 }

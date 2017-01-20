@@ -9,9 +9,11 @@
 namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
+use Auth;
 use Request;
 use App\User;
 use DB;
+use Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -60,7 +62,7 @@ class LoginController extends Controller
 
     public function postlogin()
     {
-        /*
+        
         $credentials = [
             'work_id'=>Input::get('work_id'),
             'password'=>Input::get('password')
@@ -89,7 +91,7 @@ class LoginController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        */
+        
         return view('employee.confirm');
     }
 

@@ -3,12 +3,12 @@
 @section('content')
 <div class="container" style="text-align:center; margin-right: auto; margin-left:auto;">
   <h2>安否確認：入力フォーム</h2>
-  <p>こんにちは、{{$_POST['work_id']}}}さん</p>
+  <p>こんにちは、{{$_POST['work_id']}}さん</p>
 
    {!! Form::open(['action' => 'SafeController@store']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
         {{ csrf_field() }}
-
+        <input type="hidden" name="work_id" value="{{$_POST['work_id']}}">
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
             <div class="">
             <p>調子はどうですか？</p>
