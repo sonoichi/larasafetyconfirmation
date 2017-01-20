@@ -7,7 +7,7 @@
     <p>こちらは一般向けログイン画面となります。</p>
     <p>安否データのリストが必要な場合は管理者用ページよりログインください。</p>
   </div>
-    <form class="form-horizontal" role="form" method="POST" action="{{ action('LoginController@postlogin') }}">
+    <form class="form-horizontal" role="form" method="POST" action="/employee/confirm" }}">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
