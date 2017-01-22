@@ -90,7 +90,7 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-    
+
     // expire :時間切れまでの設定 60min
     'passwords' => [
         'users' => [
