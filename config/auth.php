@@ -74,7 +74,7 @@ return [
             'driver' => 'database',
             'table' => 'worker_list',
         ],
-        'users' => [
+        'admins' => [
             'driver' => 'database',
             'table' => 'worker_list',
         ],
