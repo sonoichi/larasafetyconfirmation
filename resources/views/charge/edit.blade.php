@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <h2>安否確認：編集画面</h2>
-  <!-- 確認用 --> {{$editUser}}
+  <!-- 確認用 --> {{--$editUser--}}
   <p>編集中の社員の安否情報</p>
 <div>
     <table class="table">

@@ -11,16 +11,18 @@ class SafeController extends Controller
     {
         $input = \Request::all();
         //確認用 print_r($input);
+
+        // インサート or アップデートチェック
+        if(DB::table('safe_info')->where('work_id', $_POST['work_id'])->count() == 0){
+            // INSERT
             DB::insert('insert into safe_info(safety, comment, work_id) values (?, ?, ?)', 
             [$_POST['safety'],$_POST['comment'], $_POST['work_id']]);
-
-        //Safe::create($input);
-         //リクエストの確認
-        //echo $_POST['safety'];
-       // //echo $_POST['comment'];
-        //print "<sctipt>alert('送信していいですか');</script>";
-
-        
+        }else{
+            // UPDATE
+            DB::table('safe_info')
+               ->where('work_id',$_POST['work_id'])
+               ->update(['safety' => $_POST['safety'], 'comment' => $_POST['comment']]);
+        }
 
         return '送信されました';
     }
