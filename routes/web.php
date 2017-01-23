@@ -46,6 +46,7 @@ Route::post('/employee/post','SafeController@store');
 // 編集画面処理
 Route::get('charge/edit/{id}', 'LoginController@edit');
 
+Route::get('/charge/edit','EditController@link');
 Route::post('/charge/edit','EditController@update');
 
 

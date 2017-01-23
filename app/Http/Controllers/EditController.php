@@ -27,4 +27,8 @@ class EditController extends Controller
 
         return view('charge/list',compact('users'));
     }
+
+    public function link(){
+       return 'ログインしていない状態では閲覧することはできません';   
+    }
 }
