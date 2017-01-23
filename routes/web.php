@@ -22,16 +22,20 @@ Route::get('/', function () {
 Route::get('/charge/login','LoginController@charge');
 Route::get('/employee/login','LoginController@employee');
 
-Route::get('/charge/list', 'LoginController@getList');
+
 
 // 編集画面
 Route::get('/charge/edhit','LoginController@edit');
 
-//管理画面遷移
+// 一般用管理画面遷移
 Auth::routes();
 Route::get('/employee/confirm','LoginController@getlogin');
 Route::post('/employee/confirm','LoginController@postlogin');
 Route::get('/index', 'LoginController@getLogout');
+
+// 管理者用管理画面遷移
+Route::get('/charge/list', 'LoginController@getList');
+Route::post('/charge/list', 'LoginController@postList');
 
 //安否確認DB処理
 //Route::get('/employee/post','SafeController@store'); //get Errorになる

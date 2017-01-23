@@ -7,7 +7,7 @@
     <p>こちらは管理者向けログイン画面となります。</p>
     <p></p>
   </div>
-    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
+    <form class="form-horizontal" role="form" method="POST" action="/charge/list">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">

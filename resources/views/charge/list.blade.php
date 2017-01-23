@@ -9,7 +9,7 @@
 -->
 <div class="container">
   <h2>安否確認リスト</h2>
-  <p style="text-align:right;">ようこそ。責任者：さん</p></br>
+  <p style="text-align:right;">ようこそ。責任者：{{DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name') }}さん</p></br>
   <a href="{{ action('LoginController@charge') }}"><p style="text-align:right;">戻る</p></a>
   <hr>
 <!-- 確認用
@@ -25,18 +25,11 @@
     </tr>
 
 
-@foreach($worker_lists as $worker_list)
+
 <tr>
-      <td>{{$worker_list->name}}</td>
-      <td>{{$worker_list->tell}}</td>
-      <td>{{$worker_list->email}}</td>
-      <td>{{$worker_list->zip}}</td>
-      <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager_name}}</td>
-      <td>{{$worker_list->manager_tell}}</td>
-      <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
+
 </tr>
-@endforeach
+
 
   </table>
 -->
@@ -44,19 +37,19 @@
 
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a href="#tab1" class="nav-link navbar-default active" data-toggle="tab">部門０１</a>
+      <a href="#tab1" class="nav-link navbar-default active" data-toggle="tab">営業</a>
     </li>
     <li class="nav-item">
-      <a href="#tab2" class="nav-link navbar-default" data-toggle="tab">部門０２</a>
+      <a href="#tab2" class="nav-link navbar-default" data-toggle="tab">営業第二</a>
     </li>
     <li class="nav-item">
-      <a href="#tab3" class="nav-link navbar-default" data-toggle="tab">部門０３</a>
+      <a href="#tab3" class="nav-link navbar-default" data-toggle="tab">営業第三</a>
     </li>
     <li class="nav-item">
-      <a href="#tab4" class="nav-link navbar-default" data-toggle="tab">部門０４</a>
+      <a href="#tab4" class="nav-link navbar-default" data-toggle="tab">営業第四</a>
     </li>
     <li class="nav-item">
-      <a href="#tab5" class="nav-link navbar-default" data-toggle="tab">部門０５</a>
+      <a href="#tab5" class="nav-link navbar-default" data-toggle="tab">営業第五</a>
     </li>
   </ul>
   <!--タブの中身-->
@@ -73,27 +66,24 @@
       <td>責任者名</td>
       <td>責任者連絡先</td>
     </tr>
-
-
-
-  
-
+@foreach($users as $worker_list)
+@if(($worker_list->department)=='営業') 
 <tr>
       <td>{{$worker_list->name}}</td>
-      <td><a href="tel:{{$worker_list->tell}}">{{$worker_list->tell}}</a></td>
-      <td><a href="mailto:{{$worker_list->email}}">{{$worker_list->email}}</a></td>
+      <td>{{$worker_list->tell}}</td>
+      <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
       <td>{{$worker_list->department}}</td>
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
-      <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
+      <td>{{$worker_list->safety}}</td>
+      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
 </tr>
-
-
-
+@endif
+@endforeach
   </table>
-
     </div>
+
     <div id="tab2" class="tab-pane">
      <!--Tab２の内容-->
   <table class="table" style="margin:0 12px;">
@@ -108,7 +98,7 @@
     </tr>
 
 
-@foreach($worker_lists as $worker_list)
+@foreach($users as $worker_list)
 @if(($worker_list->department)=='営業第二') 
 <tr>
       <td>{{$worker_list->name}}</td>
@@ -118,7 +108,8 @@
       <td>{{$worker_list->department}}</td>
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
-      <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
+      <td>{{$worker_list->safety}}</td>
+      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
@@ -140,7 +131,7 @@
     </tr>
 
 
-@foreach($worker_lists as $worker_list)
+@foreach($users as $worker_list)
 @if(($worker_list->department)=='営業第三') 
 <tr>
       <td>{{$worker_list->name}}</td>
@@ -150,7 +141,8 @@
       <td>{{$worker_list->department}}</td>
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
-      <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
+      <td>{{$worker_list->safety}}</td>
+      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
@@ -172,7 +164,7 @@
     </tr>
 
 
-@foreach($worker_lists as $worker_list)
+@foreach($users as $worker_list)
 @if(($worker_list->department)=='営業第四') 
 <tr>
       <td>{{$worker_list->name}}</td>
@@ -182,7 +174,8 @@
       <td>{{$worker_list->department}}</td>
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
-      <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
+      <td>{{$worker_list->safety}}</td>
+      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
@@ -204,7 +197,7 @@
     </tr>
 
 
-@foreach($worker_lists as $worker_list)
+@foreach($users as $worker_list)
 @if(($worker_list->department)=='営業第五') 
 <tr>
       <td>{{$worker_list->name}}</td>
@@ -214,7 +207,8 @@
       <td>{{$worker_list->department}}</td>
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
-      <td><a href="{{ action('LoginController@edit') }}">編集</a></td>
+      <td>{{$worker_list->safety}}</td>
+      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach

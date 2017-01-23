@@ -53,6 +53,7 @@ class LoginController extends Controller
     // メソッドの概要:詳細
     // パラメータの説明
     //ログイン認証設定
+    // 一般用認証処理
     public function getlogin()
     {
         // if(Request::has('work_id')){
@@ -71,32 +72,6 @@ class LoginController extends Controller
             'password'=>Input::get('password')
         ];
 
-        // $rules = [
-        //     'work_id'=>'required',
-        //     'password'=>'required'
-        // ];
-
-        // $messages = array(
-        //     'work_id.required' => '社員IDを正しく入力してください。',
-        //     'password.required' => 'パスワードを正しく入力してください。',
-        // );
-
-        // $validator = Validator::make($credentials, $rules, $messages);
-
-        //確認用 print_r($credentials);
-        //if ($validator->passes()) {
-            // if (Auth::attempt($credentials)) {
-            //     return view('employee.confirm', $credentials);
-            // }else{
-            //     //return Redirect::back()->withInput();
-            //     print_r($credentials);
-            // }
-        //  }
-        // }else{
-        //     return Redirect::back()
-        //         ->withErrors($validator)
-        //         ->withInput();
-        // }
         $password = Input::get('password');
         $work_id = Input::get('work_id');
         if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
@@ -111,15 +86,39 @@ class LoginController extends Controller
         //return view('employee.login');
     }
 
-//
+
+    // 管理者用認証処理
     public function getList(){
         //getList
-        //$worker_list = DB::table('worker_list');
-        //return view('charge.list', $worker_list);
-        $worker_lists['worker_lists'] = DB::table('worker_list')->get();
+        // $worker_list = DB::table('worker_list');
+        // return view('charge.list', $worker_list);
+        // $worker_lists['worker_lists'] = DB::table('worker_list')->get();
 
-        return view('charge.list', $worker_lists);
+        // return view('charge.list', $worker_lists);
     }
+
+    public function postlist() {
+        $credentials = [
+            'work_id'=>Input::get('work_id'),
+            'password'=>Input::get('password')
+        ];
+
+        $users = DB::table('safe_info')
+          ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
+          ->whereNotIn('safe_info.safety', ['問題なし'])
+          ->get();
+
+        $password = Input::get('password');
+        $work_id = Input::get('work_id');
+        if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
+          return view('charge.list',compact('credentials','users'));
+        }else{
+          return 'パスワードが違います';
+        }      
+    }
+
+
+
 
     public function edit(){
         return view('charge.edit');
