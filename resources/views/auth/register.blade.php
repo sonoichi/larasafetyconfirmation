@@ -38,20 +38,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('tell') ? ' has-error' : '' }}">
-                            <label for="tell" class="col-md-4 control-label">電話番号</label>
-
-                            <div class="col-md-6">
-                                <input id="tell" type="tell" class="form-control" name="tell" value="{{ old('tell') }}" required>
-
-                                @if ($errors->has('tell'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('tell') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">メールアドレス</label>
 
