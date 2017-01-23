@@ -44,7 +44,9 @@ Route::post('/employee/post','SafeController@store');
 //仮：DB接続確認用ルート
 
 // 編集画面処理
-Route::get('edit/{id}', 'LoginController@edit');
+Route::get('charge/edit/{id}', 'LoginController@edit');
+
+Route::post('/charge/edit','EditController@update');
 
 
 //デバッグコード

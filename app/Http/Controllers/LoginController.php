@@ -158,7 +158,7 @@ class LoginController extends Controller
 
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
-          ->whereNotIn('safe_info.safety', ['問題なし'])
+          ->whereNotIn('safe_info.safety', ['問題ない'])
           ->get();
           //print_r($users); //確認用
           return view('debug',compact('users'));
