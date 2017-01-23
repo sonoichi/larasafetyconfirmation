@@ -59,7 +59,7 @@ Route::get('debug/{id}', 'LoginController@dbedit');
 //認証確認用: 以下デバッグ用確認項目
 // 認証ユーザの確認/
 /*
-    if(!Auth::check()){
+    if(!Auth::check()){      
             print ('<p>現在認証されていません</p>');
     }*/
 /********************************

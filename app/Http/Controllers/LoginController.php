@@ -12,7 +12,6 @@ namespace App\Http\Controllers;
 use Auth;
 use Request;
 use App\User;
-use Redirect;
 use DB;
 use Input;
 use Validator;
@@ -20,7 +19,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 // メソッド一覧
 /*
   概要
@@ -30,14 +28,13 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class LoginController extends Controller
 {
     //use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-    use AuthenticatesUsers;
 
     //ログイン画面遷移
     public function charge()
     {
         return view('charge.login');
     }
-
+    
     public function employee()
     {
         return view('employee.login');
@@ -56,29 +53,35 @@ class LoginController extends Controller
     // 一般用認証処理
     public function getlogin()
     {
-        // if(Request::has('work_id')){
-        //     $name = Request::input('work_id');
-        // }else{
-        //     $name = 'ゲスト';
-        // }
-        // return view('employee.confirm',compact('name'));
+        if(Request::has('work_id')){
+            $name = Request::input('work_id');
+        }else{
+            $name = 'ゲスト';
+        }
+        return view('employee.confirm',compact('name'));
     }
 
     public function postlogin()
     {
-
+        
         $credentials = [
             'work_id'=>Input::get('work_id'),
             'password'=>Input::get('password')
         ];
 
+
         $password = Input::get('password');
         $work_id = Input::get('work_id');
         if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
           return view('employee.confirm',$credentials);
+
         }else{
-          return 'パスワードが違います';
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput();
         }
+        
+        return view('employee.confirm');
     }
 
     public function getlogout()
@@ -117,6 +120,8 @@ class LoginController extends Controller
         }else{
           return 'パスワードが違います';
         }      
+
+
     }
 
 
@@ -136,13 +141,13 @@ class LoginController extends Controller
         $safeMember->comment = $comment;
 
         $safeMember->save();
-        return '保存しました';
+        return '保存しました';            
     }
 
 
     public function dbshow(){
         // $users = DB::table('safe_info')->get();
-
+        
         // foreach ($users as $user) {
         //     //echo $user->safety;
         //     //echo $user->work_id;
@@ -152,9 +157,9 @@ class LoginController extends Controller
         //     $IDdata[] []= $worker_lists['worker_lists'];
         //     //print_r($IDdata);
         // }
-
-        // //return view('debug', ['users' => $users]);
-        // return view('debug', $IDdata);
+        
+        // //return view('debug', ['users' => $users]); 
+        // return view('debug', $IDdata); 
 
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')

@@ -3,7 +3,9 @@
 @section('content')
 <div class="container" style="text-align:center; margin-right: auto; margin-left:auto;">
   <h2>安否確認：入力フォーム</h2>
+
   <p>こんにちは、{{ DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name')  }}:さん</p>
+
 
    {!! Form::open(['action' => 'SafeController@store']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
