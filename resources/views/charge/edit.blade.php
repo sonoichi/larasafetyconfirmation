@@ -39,6 +39,7 @@
             <input id="noReport" type="hidden" name="safety" value="報告なし">
             <input id="good" type="radio" name="safety" value="問題ない">もんだいなし　　　
             <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり
+            <p class="alert-info">* ボタンが選択されない場合は報告なしになります。</p>
         </div>
     </div>
 
