@@ -122,8 +122,9 @@ class LoginController extends Controller
 
 
 
-    public function edit(){
-        return view('charge.edit');
+    public function edit($id){
+        $editUser = DB::table('safe_info')->where('work_id',$id)->get();
+        return view('charge.edit',compact('editUser'));
     }
 
     public function getConfirm(){
