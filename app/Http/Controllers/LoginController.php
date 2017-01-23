@@ -110,7 +110,9 @@ class LoginController extends Controller
 
         $password = Input::get('password');
         $work_id = Input::get('work_id');
-        if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
+        if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) 
+        and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))
+        and ( (DB::table('worker_list')->where('work_id',$work_id)->value('name')) == (DB::table('worker_list')->where('work_id',$work_id)->value('manager_name')))){
           return view('charge.list',compact('credentials','users'));
         }else{
           return 'パスワードが違います';
