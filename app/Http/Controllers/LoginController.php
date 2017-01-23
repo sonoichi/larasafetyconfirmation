@@ -71,20 +71,19 @@ class LoginController extends Controller
             'password'=>Input::get('password')
         ];
 
-        $rules = [
-            'work_id'=>'required',
-            'password'=>'required'
-        ];
+        // $rules = [
+        //     'work_id'=>'required',
+        //     'password'=>'required'
+        // ];
 
-        $messages = array(
-            'work_id.required' => '社員IDを正しく入力してください。',
-            'password.required' => 'パスワードを正しく入力してください。',
-        );
+        // $messages = array(
+        //     'work_id.required' => '社員IDを正しく入力してください。',
+        //     'password.required' => 'パスワードを正しく入力してください。',
+        // );
 
-        $validator = Validator::make($credentials, $rules, $messages);
+        // $validator = Validator::make($credentials, $rules, $messages);
 
-        //確認用
-        print_r($credentials);
+        //確認用 print_r($credentials);
         //if ($validator->passes()) {
             // if (Auth::attempt($credentials)) {
             //     return view('employee.confirm', $credentials);
@@ -99,7 +98,8 @@ class LoginController extends Controller
         //         ->withInput();
         // }
         $password = Input::get('password');
-        if($password == (DB::table('users')->where('password',$password)->value('password'))){
+        $work_id = Input::get('work_id');
+        if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
           return view('employee.confirm',$credentials);
         }else{
           return 'パスワードが違います';

@@ -11,9 +11,9 @@ class SafeController extends Controller
     {
         $input = \Request::all();
         //確認用 print_r($input);
+            DB::insert('insert into safe_info(safety, comment, work_id) values (?, ?, ?)', 
+            [$_POST['safety'],$_POST['comment'], $_POST['work_id']]);
 
-        DB::insert('insert into safe_info(safety, comment, work_id) values (?, ?, ?)', 
-        [$_POST['safety'],$_POST['comment'], $_POST['work_id']]);
         //Safe::create($input);
          //リクエストの確認
         //echo $_POST['safety'];
