@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('[Start] import data.');
 
         $config = new LexerConfig();
+        // セパレーター指定、"\t"を指定すればtsvファイルとかも取り込めます
         $config->setDelimiter(",");
         $lexer = new Lexer($config);
         $interpreter = new Interpreter();
