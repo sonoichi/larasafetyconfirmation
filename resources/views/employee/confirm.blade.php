@@ -36,6 +36,8 @@
         </div>
     {!! Form::close() !!}
 
+    <a href="../">戻る</a>
+
 
 </div>
 @endsection

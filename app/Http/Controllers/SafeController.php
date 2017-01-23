@@ -24,6 +24,6 @@ class SafeController extends Controller
                ->update(['safety' => $_POST['safety'], 'comment' => $_POST['comment']]);
         }
 
-        return '送信されました';
+        return view('employee.confirm');
     }
 }
