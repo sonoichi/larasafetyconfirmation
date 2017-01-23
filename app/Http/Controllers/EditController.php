@@ -16,8 +16,6 @@ class EditController extends Controller
         DB::table('safe_info')
            ->where('work_id',$_POST['work_id'])
            ->update(['safety' => $_POST['safety']]);
-            // DB::update('insert into safe_info(safety, comment, work_id) values (?, ?, ?)', 
-            // [$_POST['safety'],$_POST['comment'], $_POST['work_id']]);
 
         return '送信されました';
     }

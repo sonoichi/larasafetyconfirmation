@@ -12,9 +12,10 @@
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
             <div class="col-md-12">
             <p>調子はどうですか？</p>
+                <input id="noReport" type="hidden" name="safety" value="報告なし">
                 <input id="good" type="radio" name="safety" value="問題ない">もんだいなし　　　
                 <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり
-                <input id="noReport" type="hidden" name="safety" value="報告なし">
+                
             </div>
         </div>
 
