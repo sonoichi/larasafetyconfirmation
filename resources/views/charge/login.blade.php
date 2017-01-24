@@ -60,7 +60,7 @@
             </div>
         </div>
         <div>
-          <a href="{{ url('../') }}">戻る</a>
+          <a class="btn btn-default" href="{{ url('../') }}">戻る</a>
         </div>
     </form>
 
