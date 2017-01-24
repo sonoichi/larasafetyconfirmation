@@ -9,20 +9,21 @@
 -->
 <div class="container">
   <h2>安否確認リスト</h2>
+  <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
   <p style="text-align:right;">ようこそ。責任者：{{DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name') }}さん</p></br>
   <a href="{{ action('LoginController@charge') }}"><p style="text-align:right;">戻る</p></a>
   <hr>
 <!-- 確認用
-  <table class="table" style="margin:0 12px;">
-    <tr>
-      <td>社員氏名</td>
-      <td>連絡先</td>
-      <td>住所</td>
-      <td>メールアドレス</td>
-      <td>所属部署</td>
-      <td>責任者名</td>
-      <td>責任者連絡先</td>
-    </tr>
+<table class="table" style="margin:0 12px;">
+  <tr>
+    <td>社員氏名</td>
+    <td>連絡先</td>
+    <td>住所</td>
+    <td>メールアドレス</td>
+    <td>所属部署</td>
+    <td>責任者名</td>
+    <td>責任者連絡先</td>
+  </tr>
 
 
 
@@ -31,7 +32,7 @@
 </tr>
 
 
-  </table>
+</table>
 -->
 部門ごとの表示
 
@@ -56,7 +57,7 @@
   <div class="tab-content">
     <div id="tab1" class="tab-pane active">
       <!--Tab1の内容-->
-  <table class="table" style="margin:0 12px;">
+  <table class="table table-hover-rows" style="margin:0 12px;">
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
@@ -65,6 +66,8 @@
       <td>所属部署</td>
       <td>責任者名</td>
       <td>責任者連絡先</td>
+      <td>安否情報</td>
+      <td></td>
     </tr>
 @foreach($users as $worker_list)
 @if(($worker_list->department)=='営業') 
@@ -95,6 +98,8 @@
       <td>所属部署</td>
       <td>責任者名</td>
       <td>責任者連絡先</td>
+      <td>安否情報</td>
+      <td></td>
     </tr>
 
 
@@ -127,7 +132,9 @@
       <td>メールアドレス</td>
       <td>所属部署</td>
       <td>責任者名</td>
-      <td>責任者連絡先</td>      
+      <td>責任者連絡先</td>
+      <td>安否情報</td>
+      <td></td>     
     </tr>
 
 
@@ -161,6 +168,8 @@
       <td>所属部署</td>
       <td>責任者名</td>
       <td>責任者連絡先</td>
+      <td>安否情報</td>
+      <td></td>
     </tr>
 
 
@@ -194,6 +203,8 @@
       <td>所属部署</td>
       <td>責任者名</td>
       <td>責任者連絡先</td>
+      <td>安否情報</td>
+      <td></td>
     </tr>
 
 

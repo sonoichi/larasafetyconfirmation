@@ -18,7 +18,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use Illuminate\Support\Facades\Redirect;
 // メソッド一覧
 /*
   概要
@@ -29,12 +29,15 @@ class LoginController extends Controller
 {
     //use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    //ログイン画面遷移
+    // ログイン画面遷移
+    // index -> charge/login
     public function charge()
     {
         return view('charge.login');
     }
     
+    // ログイン画面遷移
+    // index -> employee/login
     public function employee()
     {
         return view('employee.login');
@@ -61,14 +64,22 @@ class LoginController extends Controller
         return view('employee.confirm',compact('name'));
     }
 
+    // ログイン時の処理
+    // employee/login -> employee/confirm
     public function postlogin()
-    {
-        
+    {   
         $credentials = [
             'work_id'=>Input::get('work_id'),
             'password'=>Input::get('password')
         ];
 
+        $rules = [
+            'work_id'=>'required',
+            'password'=>'required|min:8|max:8',
+        ];
+
+
+        $validator = \Validator::make($credentials,$rules);
 
         $password = Input::get('password');
         $work_id = Input::get('work_id');
@@ -81,7 +92,7 @@ class LoginController extends Controller
                 ->withInput();
         }
         
-        return view('employee.confirm');
+        //return view('employee.confirm');
     }
 
     public function getlogout()
@@ -100,11 +111,20 @@ class LoginController extends Controller
         // return view('charge.list', $worker_lists);
     }
 
+    // ログイン時の処理
+    // charge/login -> charge/confirm
     public function postlist() {
         $credentials = [
             'work_id'=>Input::get('work_id'),
             'password'=>Input::get('password')
         ];
+
+        $rules = [
+            'work_id'=>'required',
+            'password'=>'required|min:8|max:8',
+        ];
+
+        $validator = \Validator::make($credentials,$rules);
 
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
@@ -118,7 +138,9 @@ class LoginController extends Controller
         and ( (DB::table('worker_list')->where('work_id',$work_id)->value('name')) == (DB::table('worker_list')->where('work_id',$work_id)->value('manager_name')))){
           return view('charge.list',compact('credentials','users'));
         }else{
-          return 'パスワードが違います';
+            return Redirect::back()
+                ->withErrors($validator)
+                ->withInput();
         }      
 
 
@@ -146,21 +168,6 @@ class LoginController extends Controller
 
 
     public function dbshow(){
-        // $users = DB::table('safe_info')->get();
-        
-        // foreach ($users as $user) {
-        //     //echo $user->safety;
-        //     //echo $user->work_id;
-        //     $currentID = $user->work_id;
-        //     //echo '<br/>'.$currentID.'Login Cotrollerから<br/>';
-        //     $worker_lists['worker_lists'] = DB::table('worker_list')->where('work_id', $currentID)->get();
-        //     $IDdata[] []= $worker_lists['worker_lists'];
-        //     //print_r($IDdata);
-        // }
-        
-        // //return view('debug', ['users' => $users]); 
-        // return view('debug', $IDdata); 
-
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
           ->whereNotIn('safe_info.safety', ['問題ない'])

@@ -17,6 +17,8 @@ class SafeInfo extends Migration
             $table->increments('work_id');
             $table->string('safety');
             $table->string('comment');
+            $table->string('manager_coment');
+            $table->timestamps();
         });
     }
 
