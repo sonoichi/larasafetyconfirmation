@@ -19,6 +19,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Redirect;
+use Session;
 // メソッド一覧
 /*
   概要
@@ -110,7 +111,7 @@ class LoginController extends Controller
     }
 
     // ログイン時の処理
-    // charge/login -> charge/confirm
+    // charge/login -> charge/list
     public function postlist() {
         $credentials = [
             'work_id'=>Input::get('work_id'),
@@ -131,9 +132,15 @@ class LoginController extends Controller
 
         $password = Input::get('password');
         $work_id = Input::get('work_id');
+        
+          //セッション保存
+        Session::put('work_id', $work_id);
+        Session::put('password', $password);
+
         if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) 
         and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))
         and ( (DB::table('worker_list')->where('work_id',$work_id)->value('name')) == (DB::table('worker_list')->where('work_id',$work_id)->value('manager_name')))){
+          //return Session::all();
           return view('charge.list',compact('credentials','users'));
         }else{
             return Redirect::back()
@@ -141,13 +148,23 @@ class LoginController extends Controller
                 ->withInput();
         }
     }
+
+    // 
+    // charge/edit -> charge/edit/{id}
     public function getedit($id){
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();   
-        return view('charge.edit',compact('editUser'));
+        if(Session::has('password')){
+          return view('charge.edit',compact('editUser'));
+          //return Session::all();
+        }else{
+          //return Session::all(); 
+        }
+        //return redirect()->route('edit', ['editUser' => $editUser]);
+        //return Session::all();
     }
 
     public function edit(){
-        return redirect('/');
+        //return view('charge.edit',compact('editUser'));
     }
 
 
