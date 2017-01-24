@@ -4,7 +4,7 @@
 <div class="container" style="text-align:center; margin-right: auto; margin-left:auto;">
   <h2>安否確認：入力フォーム</h2>
 
-  <p>こんにちは、{{ DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name')  }}:さん</p>
+  <p>こんにちは、{{ DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name')  }}さん</p>
 
 
    {!! Form::open(['action' => 'SafeController@store']) !!}
@@ -15,14 +15,13 @@
             <div class="col-md-12">
             <p>調子はどうですか？</p>
                 <input id="noReport" type="hidden" name="safety" value="報告なし">
-                <input id="good" type="radio" name="safety" value="問題ない">もんだいなし　　　
+                <input id="good" type="radio" name="safety" value="問題ない" checked>もんだいなし　　　
                 <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり
-                
             </div>
         </div>
 
         <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-            <label for="comment" class="col-md-4 control-label">コメント</label>
+            <label for="comment" class="col-md-4 control-label">コメントを残す</label>
 
             <div class="col-md-6">
                 <input id="comment" type="comment" class="form-control" name="comment">
@@ -39,7 +38,5 @@
     {!! Form::close() !!}
 
     <a href="../">戻る</a>
-
-
 </div>
 @endsection

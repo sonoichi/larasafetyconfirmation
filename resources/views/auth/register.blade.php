@@ -81,7 +81,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-md-6 col-md-offset-6"><a href="../"><p>戻る</p></a></div>
+                        <div class="col-md-6 col-md-offset-6"><a class="btn" href="../"><p>戻る</p></a></div>
                     </form>
                 </div>
             </div>
