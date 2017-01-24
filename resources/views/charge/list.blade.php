@@ -114,7 +114,7 @@
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
-      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
+      <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
@@ -149,7 +149,7 @@
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
-      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
+      <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
@@ -184,7 +184,7 @@
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
-      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
+      <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
@@ -219,7 +219,7 @@
       <td>{{$worker_list->manager_name}}</td>
       <td>{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
-      <td><a href="/debug/{{$worker_list->work_id}}">編集</a></td>
+      <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
 @endforeach
