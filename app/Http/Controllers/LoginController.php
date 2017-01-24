@@ -141,13 +141,8 @@ class LoginController extends Controller
             return Redirect::back()
                 ->withErrors($validator)
                 ->withInput();
-        }      
-
-
+        }
     }
-
-
-
 
     public function edit($id){
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();

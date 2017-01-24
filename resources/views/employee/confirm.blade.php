@@ -1,10 +1,10 @@
 @extends('layout')
 
 @section('content')
-<div class="container" style="text-align:center; margin-right: auto; margin-left:auto;">
+<div class="container" style="margin-right: auto; margin-left:auto;">
   <h2>安否確認：入力フォーム</h2>
 
-  <p>こんにちは、{{ DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name')  }}さん</p>
+  <p style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name')  }}さん</p>
 
 
    {!! Form::open(['action' => 'SafeController@store']) !!}
@@ -13,6 +13,7 @@
         <input type="hidden" name="work_id" value="{{$_POST['work_id']}}">
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
             <div class="col-md-12">
+            <h3>安否確認</h3>
             <p>調子はどうですか？</p>
                 <input id="noReport" type="hidden" name="safety" value="報告なし">
                 <input id="good" type="radio" name="safety" value="問題ない" checked>もんだいなし　　　
@@ -29,14 +30,17 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-8 col-md-offset-4">
+            <div style="text-align:right;" class="col-md-2 col-md-offset-10">
                 <button type="submit" class="btn btn-primary">
                     送信
                 </button>
+                <a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
+                確認
+                </a>
             </div>
         </div>
     {!! Form::close() !!}
 
-    <a href="../">戻る</a>
+    <a class="btn" href="../">戻る</a>
 </div>
 @endsection

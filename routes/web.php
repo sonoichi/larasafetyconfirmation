@@ -22,8 +22,6 @@ Route::get('/', function () {
 Route::get('/charge/login','LoginController@charge');
 Route::get('/employee/login','LoginController@employee');
 
-
-
 // 編集画面
 Route::get('/charge/edhit','LoginController@edit');
 
@@ -41,6 +39,9 @@ Route::post('/charge/list', 'LoginController@postList');
 //Route::get('/employee/post','SafeController@store'); //get Errorになる
 Route::post('/employee/post','SafeController@store');
 
+//投稿後の確認画面
+Route::get('/employee/post', 'SafeController@postconfirm');
+
 //仮：DB接続確認用ルート
 
 // 編集画面処理
@@ -48,7 +49,6 @@ Route::get('charge/edit/{id}', 'LoginController@edit');
 
 Route::get('/charge/edit','EditController@link');
 Route::post('/charge/edit','EditController@update');
-
 
 //デバッグコード
 Route::get('/debug','LoginController@dbshow');

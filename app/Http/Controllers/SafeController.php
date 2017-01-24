@@ -26,4 +26,10 @@ class SafeController extends Controller
 
         return view('employee.confirm');
     }
+
+
+    public function postconfirm(){
+
+        return view('employee.post');
+    }    
 }
