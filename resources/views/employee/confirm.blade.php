@@ -34,9 +34,9 @@
                 <button type="submit" class="btn btn-primary">
                     送信
                 </button>
-                <a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
+                <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
                 確認
-                </a>
+                </a>-->
             </div>
         </div>
     {!! Form::close() !!}
