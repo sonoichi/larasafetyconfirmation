@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <h2>安否確認：編集画面</h2>
-  <!-- 確認用 --> {{--$editUser--}}
+  <!-- 確認用 --> {{$editUser}}
   <p>編集中の社員の安否情報</p>
 <div>
     <table class="table">
@@ -12,6 +12,7 @@
     <td>氏名</td>
     <td>状態</td>
     <td>コメント</td>
+    <td>投稿時間</td>
     </tr>
     @foreach($editUser as $worker_list)
         <tr>
@@ -19,6 +20,7 @@
             <td>{{ DB::table('worker_list')->where('work_id',$worker_list->work_id)->value('name') }}</td>
             <td>{{$worker_list->safety}}</td>
             <td>{{$worker_list->comment}}</td>
+            <td>{{$worker_list->date}}</td>
         <tr>
     @endforeach
     </table>
@@ -44,11 +46,21 @@
     </div>
 
     <h3>コメント</h3>
+    <p class="text-danger">* 編集中の社員のコメントが直接編集されます</p>
     <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
         <label for="comment" class="col-md-2 control-label">コメント</label>
 
         <div class="col-md-8">
             <input id="comment" type="comment" class="form-control" name="comment">
+        </div>
+    </div>
+
+    <h3>管理者からのコメント</h3>
+    <div class="form-group{{ $errors->has('manager_comment') ? ' has-error' : '' }}">
+        <label for="manager_comment" class="col-md-2 control-label">コメント</label>
+
+        <div class="col-md-8">
+            <input id="manager_comment" type="manager_comment" class="form-control" name="manager_comment">
         </div>
     </div>
 
@@ -61,7 +73,7 @@
     </div>
 {!! Form::close() !!}
 <div class="col-md-12">
-    <a href="{{ action('LoginController@charge') }}">戻る</a>
+    <a class="btn" href="{{ action('LoginController@charge') }}">戻る</a>
 </div>
 
 </div>

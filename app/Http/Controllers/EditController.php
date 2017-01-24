@@ -11,13 +11,13 @@ class EditController extends Controller
     {
         $input = \Request::all();
         //確認用 
-        print_r($input);
-        echo $_POST['safety'];
+        // print_r($input);
+        // echo $_POST['safety'];
 
         //Update
         DB::table('safe_info')
            ->where('work_id',$_POST['work_id'])
-           ->update(['safety' => $_POST['safety'], 'comment' => $_POST['comment']]);
+           ->update(['safety' => $_POST['safety'], 'comment' => $_POST['comment'], 'manager_comment' => $_POST['manager_comment']]);
 
         //戻る用 'Users'
         $users = DB::table('safe_info')
