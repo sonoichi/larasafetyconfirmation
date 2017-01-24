@@ -56,12 +56,13 @@ class LoginController extends Controller
     // 一般用認証処理
     public function getlogin()
     {
-        if(Request::has('work_id')){
-            $name = Request::input('work_id');
-        }else{
-            $name = 'ゲスト';
-        }
-        return view('employee.confirm',compact('name'));
+        // if(Request::has('work_id')){
+        //     $name = Request::input('work_id');
+        // }else{
+        //     $name = 'ゲスト';
+        // }
+        // return view('employee.confirm',compact('name'));
+        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }
 
     // ログイン時の処理
@@ -102,13 +103,10 @@ class LoginController extends Controller
 
 
     // 管理者用認証処理
+    
+    // 外部からの編集画面呼出への処理
     public function getList(){
-        //getList
-        // $worker_list = DB::table('worker_list');
-        // return view('charge.list', $worker_list);
-        // $worker_lists['worker_lists'] = DB::table('worker_list')->get();
-
-        // return view('charge.list', $worker_lists);
+        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }
 
     // ログイン時の処理
@@ -143,11 +141,16 @@ class LoginController extends Controller
                 ->withInput();
         }
     }
-
-    public function edit($id){
-        $editUser = DB::table('safe_info')->where('work_id',$id)->get();
+    public function getedit($id){
+        $editUser = DB::table('safe_info')->where('work_id',$id)->get();   
         return view('charge.edit',compact('editUser'));
     }
+
+    public function edit(){
+        return redirect('/');
+    }
+
+
 
     public function getConfirm(){
         $safety = Input::get('safety');

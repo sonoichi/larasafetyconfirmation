@@ -19,11 +19,14 @@ Route::get('/', function () {
 });
 
 // ログイン画面へ移動
+// index -> charge.login
 Route::get('/charge/login','LoginController@charge');
+// index -> employee.login
 Route::get('/employee/login','LoginController@employee');
 
 // 編集画面
-Route::get('/charge/edhit','LoginController@edit');
+// charge
+Route::get('/charge/edit','LoginController@edit');
 
 // 一般用管理画面遷移
 Auth::routes();
@@ -45,7 +48,8 @@ Route::get('/employee/post', 'SafeController@postconfirm');
 //仮：DB接続確認用ルート
 
 // 編集画面処理
-Route::get('charge/edit/{id}', 'LoginController@edit');
+Route::post('charge/edit/{id}', 'LoginController@edit');
+Route::get('charge/edit/{id}', 'LoginController@getedit');
 
 Route::get('/charge/edit','EditController@link');
 Route::post('/charge/edit','EditController@update');
