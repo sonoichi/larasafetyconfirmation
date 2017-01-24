@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <h2>安否確認：編集画面</h2>
-  <!-- 確認用 --> {{$editUser}}
+  <!-- 確認用 --> {{--$editUser--}}
   <p>編集中の社員の安否情報</p>
 <div>
     <table class="table">
@@ -46,12 +46,12 @@
     </div>
 
     <h3>コメント</h3>
-    <p class="text-danger">* 編集中の社員のコメントが直接編集されます</p>
     <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
         <label for="comment" class="col-md-2 control-label">コメント</label>
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <input id="comment" type="comment" class="form-control" name="comment">
+            <p class="text-danger">* 編集中の社員のコメントが直接編集されます</p>
         </div>
     </div>
 
@@ -59,13 +59,14 @@
     <div class="form-group{{ $errors->has('manager_comment') ? ' has-error' : '' }}">
         <label for="manager_comment" class="col-md-2 control-label">コメント</label>
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <input id="manager_comment" type="manager_comment" class="form-control" name="manager_comment">
+            <p></p>
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-md-8 col-md-offset-4">
+    <div style="text-align:right" class="form-group">
+        <div class="col-md-12">
             <button type="submit" class="btn btn-primary">
                 編集
             </button>
