@@ -9,6 +9,10 @@
   </div>
     <form class="form-horizontal" role="form" method="POST" action="/charge/list">
         {{ csrf_field() }}
+    <div>
+      <p>以下のエラーが発生しています。</p>
+    </div>
+
 
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
             <label for="work_id" class="col-md-4 control-label">社員ID</label>

@@ -119,7 +119,7 @@ class LoginController extends Controller
         ];
 
         $rules = [
-            'work_id'=>'required',
+            'work_id'=>'required|alpha_num',
             'password'=>'required|min:8|max:8',
         ];
 
@@ -128,7 +128,7 @@ class LoginController extends Controller
             'password' => 'パスワードが未入力です',
         ];
 
-        $validator = \Validator::make($credentials,$rules);
+        $validator = \Validator::make($credentials,$rules,$message);
 
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
