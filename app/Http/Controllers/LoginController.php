@@ -123,6 +123,11 @@ class LoginController extends Controller
             'password'=>'required|min:8|max:8',
         ];
 
+        $message = [
+            'work_id' => '社員IDが未入力です',
+            'password' => 'パスワードが未入力です',
+        ];
+
         $validator = \Validator::make($credentials,$rules);
 
         $users = DB::table('safe_info')
