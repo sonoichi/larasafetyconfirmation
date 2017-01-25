@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Session\TokenMismatchException; //追加
 
 class Handler extends ExceptionHandler
 {
@@ -20,6 +21,7 @@ class Handler extends ExceptionHandler
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+        HttpException::class, //追加
     ];
 
     /**
@@ -32,7 +34,8 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
-        parent::report($exception);
+         parent::report($exception); // 一時的に削除　元
+        //return parent::report($exception);
     }
 
     /**
@@ -44,6 +47,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+            // if ($e instanceof TokenMismatchException){
+            // return redirect()
+            //   ->back()
+            //   ->with('csrf_error','セッションが切れました。<br />もう一度最初から入力してください。');
+            // }
         return parent::render($request, $exception);
     }
 

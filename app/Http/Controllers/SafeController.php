@@ -10,11 +10,13 @@ use Illuminate\Routing\Controller;
 class SafeController extends Controller
 {
     // DB接続
+    // employee/confirm -> employee/post 
     public function store(Request $request)
     {
-        // if(!Session::get('work_id')){
-        //     return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
-        // }
+        if(!Session::get('work_id')){
+            // return Session::all();
+            return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        }
         $input = \Request::all();
         // 確認用 
         //return Session::all();
@@ -40,9 +42,9 @@ class SafeController extends Controller
 
 
     public function postconfirm(){
-        // $post = DB::table('safe_info')
-        //   ->where('work_id',$_POST['work_id'])
-        //   ->get();
-        // return view('employee.post',compact('post'));
+        if(!Session::get('work_id')){
+            // return Session::all();
+            return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        }
     }    
 }

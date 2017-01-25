@@ -109,6 +109,9 @@ class LoginController extends Controller
     
     // 外部からの編集画面呼出への処理
     public function getList(){
+        if(!Session::has('work_id')){
+            return view('/index');
+        }
         return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }
 
@@ -137,7 +140,6 @@ class LoginController extends Controller
         
           //セッション保存
         Session::put('work_id', $work_id);
-        Session::put('password', $password);
 
         if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) 
         and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))
@@ -154,14 +156,26 @@ class LoginController extends Controller
     // 
     // charge/edit -> charge/edit/{id}
     public function getedit($id){
+        //return Session::all();
+        
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();
-        Session::put('editWorker', $editUser); // 編集用ユーザー  
-        if(Session::has('password')){
-          return view('charge.edit',compact('editUser'));
-        //   return Session::all();
-        //   return Session::get('url');
+        Session::put('editWorker', $editUser); // 編集用ユーザーID :: view中の表示に利用しているので下手にいじれない
+
+        $editEditWorker_id = DB::table('safe_info')->where('work_id',$id)->value('work_id');
+        Session::put('editWorker_id', $editEditWorker_id); //個別データ
+        $editEditSafety = DB::table('safe_info')->where('work_id',$id)->value('safety');
+        Session::put('editSafety', $editEditSafety); //個別データ
+        $editComment = DB::table('safe_info')->where('work_id',$id)->value('comment');
+        Session::put('editComment', $editComment); //個別データ
+
+        
+        // 確認用 return Session::get('editWorker');
+        if(Session::has('work_id')){
+          return view('charge.edit',compact('editUser','editWorker_id','editSafety','editComment'));
+         // return Session::all();
         }else{
-          //return Session::all(); 
+          Session::forget('work_id');
+          return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
         //return redirect()->route('edit', ['editUser' => $editUser]);
         //return Session::all();
@@ -187,18 +201,18 @@ class LoginController extends Controller
 
 
     public function sessionkill(){
-        Session::flush();
+        Session::forget('work_id');
+        // 確認用 
+        //return Session::all();
         return view('/index');
+        //return redirect()->route('../index');
     }
 
 
+
+// 以下検証用に作ったもの
     public function dbshow(){
-        $users = DB::table('safe_info')
-          ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
-          ->whereNotIn('safe_info.safety', ['問題ない'])
-          ->get();
-          //print_r($users); //確認用
-          return view('debug',compact('users'));
+
     }
 
     public function dbedit($id){

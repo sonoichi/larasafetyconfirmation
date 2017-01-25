@@ -3,8 +3,9 @@
 @section('content')
 <div class="container">
   <h2>安否確認：編集画面</h2>
-  <!-- 確認用 --> {{--$editUser--}}
-  {{ old('work_id') }}
+  <!-- 確認用 --> 
+  {{ Session::get('editWorker') }}
+  
   <p>編集中の社員の安否情報</p>
 <div>
     <table class="table">
@@ -30,6 +31,7 @@
   <hr>
 
 <h2>編集フォーム</h2>
+
 {!! Form::open(['action' => 'EditController@update']) !!}
     {{ csrf_field() }}
 
@@ -51,7 +53,7 @@
         <label for="comment" class="col-md-2 control-label">コメント</label>
 
         <div class="col-md-12">
-            <input id="comment" type="comment" class="form-control" name="comment" value="" disabled>
+            <input id="comment" type="comment" class="form-control" name="comment" value="{{ Session::get('editComment') }}" disabled>
             <p class="text-danger">* 編集中の社員のコメントが直接編集されます</p>
         </div>
     </div>
@@ -79,4 +81,13 @@
 </div>
 
 </div>
+@endsection
+
+@section('script')
+<!-- editページでのみ使用 -->
+<!-- ラジオボタンのチェック判定 -->
+<scipt>
+
+
+</script>
 @endsection
