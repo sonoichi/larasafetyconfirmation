@@ -57,9 +57,14 @@ class LoginController extends Controller
     // パラメータの説明
     //ログイン認証設定
     // 一般用認証処理
+    // 
     public function getlogin()
     {
-        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        //return Session::all();
+        // if(Session::get('work_id')){
+           //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        // }
+        //return view('employee.confirm');
     }
 
     // ログイン時の処理
