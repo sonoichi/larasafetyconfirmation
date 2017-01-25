@@ -4,7 +4,7 @@
 <div class="container" style="margin-right: auto; margin-left:auto;">
   <h2>安否確認：入力フォーム</h2>
 
-  <p style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name')  }}さん</p>
+  <p style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
 
 
    {!! Form::open(['action' => 'SafeController@store']) !!}

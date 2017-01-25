@@ -10,7 +10,7 @@
 <div class="container">
   <h2>安否確認リスト</h2>
   <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
-  <p style="text-align:right;">ようこそ。ID：{{Session::get('work_id')}} 責任者：{{DB::table('worker_list')->where('work_id',$_POST['work_id'])->value('name') }}さん</p></br>
+  <p style="text-align:right;">ようこそ。ID：{{Session::get('work_id')}} 責任者：{{DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name') }}さん</p></br>
   <p style="text-align:right;"><a class="btn btn-default" href="{{ action('LoginController@sessionkill') }}">ログアウト</a></p>
   <hr>
 <!-- 確認用

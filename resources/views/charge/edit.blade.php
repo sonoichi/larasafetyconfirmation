@@ -53,8 +53,8 @@
         <label for="comment" class="col-md-2 control-label">コメント</label>
 
         <div class="col-md-12">
-            <input id="comment" type="comment" class="form-control" name="comment" value="{{ Session::get('editComment') }}" disabled>
-            <p class="text-danger">* 編集中の社員のコメントが直接編集されます</p>
+            <input id="comment" type="comment" class="form-control" name="comment" value="{{ Session::get('editComment') }}" readonly="readonly">
+            <p class="text-danger">* 編集中の社員のコメントが直接編集されます。現在は読込専用となっています。</p>
         </div>
     </div>
 
@@ -86,7 +86,14 @@
 @section('script')
 <!-- editページでのみ使用 -->
 <!-- ラジオボタンのチェック判定 -->
-<scipt>
+<script>
+$(function(){
+    if('{{ Session::get('editSafety') }}'=='問題あり'){
+      console.log('問題ありや');
+    }else if('{{ Session::get('editSafety') }}'== '問題ない'){
+      console.log('問題なしや');
+    }
+});
 
 
 </script>

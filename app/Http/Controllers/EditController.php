@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
+use Session;
 class EditController extends Controller
 {
     public function update(Request $request)
@@ -13,7 +13,7 @@ class EditController extends Controller
         //確認用 
         // print_r($input);
         // echo $_POST['safety'];
-
+        //return Session::all();
         //Update
         DB::table('safe_info')
            ->where('work_id',$_POST['work_id'])
