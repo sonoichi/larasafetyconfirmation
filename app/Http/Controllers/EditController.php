@@ -24,11 +24,14 @@ class EditController extends Controller
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
           ->whereNotIn('safe_info.safety', ['問題ない'])
           ->get();
-
+        
+        //
         return view('charge/list',compact('users'));
     }
 
     public function link(){
-       return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';   
+        if(!Session::get('work_id')){
+        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';   
+        }
     }
 }

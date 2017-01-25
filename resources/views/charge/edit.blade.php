@@ -4,7 +4,7 @@
 <div class="container">
   <h2>安否確認：編集画面</h2>
   <!-- 確認用 --> 
-  {{ Session::get('editWorker') }}
+  {{-- Session::get('editWorker') --}}
   
   <p>編集中の社員の安否情報</p>
 <div>
@@ -41,10 +41,11 @@
     <h3>状態</h3>
     <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
         <div class="col-md-12">
-            <input id="noReport" type="hidden" name="safety" value="報告なし">
+            <input id="noReport" type="radio" name="safety" value="報告なし">報告なし　　　
             <input id="good" type="radio" name="safety" value="問題ない">もんだいなし　　　
             <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり
-            <p class="alert-info">* ボタンが選択されない場合は報告なしになります。</p>
+            <!--<p class="alert-info">* ボタンが選択されない場合は報告なしになります。</p>-->
+            <p></p>
         </div>
     </div>
 
@@ -54,7 +55,7 @@
 
         <div class="col-md-12">
             <input id="comment" type="comment" class="form-control" name="comment" value="{{ Session::get('editComment') }}" readonly="readonly">
-            <p class="text-danger">* 編集中の社員のコメントが直接編集されます。現在は読込専用となっています。</p>
+            <p class="text-danger">* 編集中の社員のコメントが直接編集されます。現在は読取専用となっています。</p>
         </div>
     </div>
 
@@ -63,21 +64,21 @@
         <label for="manager_comment" class="col-md-2 control-label">コメント</label>
 
         <div class="col-md-12">
-            <input id="manager_comment" type="manager_comment" class="form-control" name="manager_comment">
+            <input id="manager_comment" type="manager_comment" class="form-control" name="manager_comment" value="{{Session::get('editManager_comment')}}">
             <p></p>
         </div>
     </div>
 
     <div style="text-align:right" class="form-group">
         <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="edit btn btn-primary">
                 編集
             </button>
         </div>
     </div>
 {!! Form::close() !!}
 <div class="col-md-12">
-    <a class="btn" href="{{ action('LoginController@charge') }}">戻る</a>
+    <a class="btn btn-default" href="{{ action('LoginController@charge') }}">戻る</a>
 </div>
 
 </div>
@@ -88,10 +89,15 @@
 <!-- ラジオボタンのチェック判定 -->
 <script>
 $(function(){
-    if('{{ Session::get('editSafety') }}'=='問題あり'){
-      console.log('問題ありや');
-    }else if('{{ Session::get('editSafety') }}'== '問題ない'){
-      console.log('問題なしや');
+    if('{{ Session::get('editSafety') }}'==='問題あり'){
+      console.log('問題あり');
+      $("#bad").attr("checked", true);
+    }else if('{{ Session::get('editSafety') }}'=== '問題ない'){
+      console.log('問題なし');
+      $("#good").attr("checked", true);
+    }else{
+      $("#noReport").attr("checked", true);
+      console.log('報告なし');
     }
 });
 
