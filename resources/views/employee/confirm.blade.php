@@ -22,16 +22,16 @@
         </div>
 
         <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-            <label for="comment" class="col-md-4 control-label">コメントを残す</label>
+            <label for="comment" class="col-md-12 control-label">コメントを残す</label>
 
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <input id="comment" type="comment" class="form-control" name="comment">
             </div>
         </div>
 
         <div class="form-group">
             <div style="text-align:right;" class="col-md-2 col-md-offset-10">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="confirmCheck btn btn-primary">
                     送信
                 </button>
                 <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
@@ -40,7 +40,8 @@
             </div>
         </div>
     {!! Form::close() !!}
-
-    <a class="btn" href="../">戻る</a>
+    <div class="col-md-12">
+        <a class="btn btn-default" href="../">戻る</a>
+    </div>
 </div>
 @endsection

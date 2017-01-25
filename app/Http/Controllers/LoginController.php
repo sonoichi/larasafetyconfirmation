@@ -34,6 +34,7 @@ class LoginController extends Controller
     // index -> charge/login
     public function charge()
     {
+        //Session::flush();
         return view('charge.login');
     }
     
@@ -41,6 +42,7 @@ class LoginController extends Controller
     // index -> employee/login
     public function employee()
     {
+        //Session::flush();
         return view('employee.login');
     }
 
@@ -80,14 +82,14 @@ class LoginController extends Controller
             'password'=>'required|min:8|max:8',
         ];
 
-
         $validator = \Validator::make($credentials,$rules);
 
         $password = Input::get('password');
         $work_id = Input::get('work_id');
+        Session::put('work_id', $work_id);
         if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
           return view('employee.confirm',$credentials);
-
+          //確認用 return Session::all();
         }else{
             return Redirect::back()
                 ->withErrors($validator)
@@ -152,10 +154,12 @@ class LoginController extends Controller
     // 
     // charge/edit -> charge/edit/{id}
     public function getedit($id){
-        $editUser = DB::table('safe_info')->where('work_id',$id)->get();   
+        $editUser = DB::table('safe_info')->where('work_id',$id)->get();
+        Session::put('editWorker', $editUser); // 編集用ユーザー  
         if(Session::has('password')){
           return view('charge.edit',compact('editUser'));
-          //return Session::all();
+        //   return Session::all();
+        //   return Session::get('url');
         }else{
           //return Session::all(); 
         }
@@ -179,6 +183,12 @@ class LoginController extends Controller
 
         $safeMember->save();
         return '保存しました';            
+    }
+
+
+    public function sessionkill(){
+        Session::flush();
+        return view('/index');
     }
 
 

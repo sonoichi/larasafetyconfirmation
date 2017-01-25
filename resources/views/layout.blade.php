@@ -68,5 +68,42 @@
       @yield('content')
     <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- 他で流用するかもしれない。まとめられる内容になったら以下をまとめる -->
+<!--
+    .confirm  に対する送信確認
+-->
+<script>
+$(function(){
+    $(".confirmCheck").click(function(){
+        // カスタムメッセージ版    
+
+        // 確認用簡易版
+        if(confirm("送信してもよろしいでしょうか？")){
+            return true;
+        }else{
+            return false;
+        }
+    });
+});
+</script>
+
+<!--
+    .edit　に対する編集確認
+-->
+<script>
+$(function(){
+    $(".edit").click(function(){
+        // カスタムメッセージ版    
+
+        // 確認用簡易版
+        if(confirm("登録しても宜しいでしょうか？")){
+            return true;
+        }else{
+            return false;
+        }
+    });
+});
+</script>
     </body>
 </html>

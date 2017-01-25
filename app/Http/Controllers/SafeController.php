@@ -2,28 +2,39 @@
 
 namespace App\Http\Controllers;
 use DB;
-use Illuminate\Http\Request;
+use Session;
+//use Illuminate\Http\Request;
+use Request;
 use Illuminate\Routing\Controller;
 
 class SafeController extends Controller
 {
+    // DB接続
     public function store(Request $request)
     {
+        // if(!Session::get('work_id')){
+        //     return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        // }
         $input = \Request::all();
-        // 確認用 print_r($input);
-
+        // 確認用 
+        //return Session::all();
+        // 確認用 return Request::input('comment');
         // インサート or アップデートチェック
-        if(DB::table('safe_info')->where('work_id', $_POST['work_id'])->count() == 0){
+        if(DB::table('safe_info')->where('work_id', Session::get('work_id'))->count() === 0){
             // INSERT
-            DB::insert('insert into safe_info(safety, comment, work_id) values (?, ?, ?)', 
-            [$_POST['safety'],$_POST['comment'], $_POST['work_id']]);
+            // DB::insert('insert into safe_info(safety, comment, manager_comment ,work_id) values (?, ?, ?, ?)', 
+            // [Request::input('safety') ,Request::input('comment') , '',Session::get('work_id')]);
+
+            DB::table('safe_info')->insert(
+                ['safety' => Request::input('safety'), 'comment' => Request::input('comment'), 'manager_comment' => '','work_id' => Session::get('work_id')]
+            );
         }else{
             // UPDATE
             DB::table('safe_info')
-               ->where('work_id',$_POST['work_id'])
-               ->update(['safety' => $_POST['safety'], 'comment' => $_POST['comment']]);
+               ->where('work_id',Session::get('work_id'))
+               ->update(['safety' => Request::input('safety'), 'comment' => Request::input('comment')]);
         }
-        $work_id = $_POST['work_id'];
+        $work_id = Session::get('work_id');
         return view('employee.post',compact('work_id'));
     }
 

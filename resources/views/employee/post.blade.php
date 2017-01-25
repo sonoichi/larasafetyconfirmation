@@ -16,7 +16,6 @@
       <tr>
         <td>{{ DB::table('worker_list')->where('work_id',$work_id)->value('name')  }}</td>
         <td>{{ DB::table('safe_info')->where('work_id',$work_id)->value('safety')  }}</td>
-        <td>{{ DB::table('safe_info')->where('work_id',$work_id)->value('safety')  }}</td>
         <td>{{ DB::table('safe_info')->where('work_id',$work_id)->value('comment')  }}</td>
         <td>{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_comment')  }}</td>
         <td>{{ DB::table('safe_info')->where('work_id',$work_id)->value('date')  }}</td>

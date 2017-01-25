@@ -4,6 +4,7 @@
 <div class="container">
   <h2>安否確認：編集画面</h2>
   <!-- 確認用 --> {{--$editUser--}}
+  {{ old('work_id') }}
   <p>編集中の社員の安否情報</p>
 <div>
     <table class="table">
@@ -50,7 +51,7 @@
         <label for="comment" class="col-md-2 control-label">コメント</label>
 
         <div class="col-md-12">
-            <input id="comment" type="comment" class="form-control" name="comment">
+            <input id="comment" type="comment" class="form-control" name="comment" value="" disabled>
             <p class="text-danger">* 編集中の社員のコメントが直接編集されます</p>
         </div>
     </div>
