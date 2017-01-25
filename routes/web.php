@@ -58,7 +58,7 @@ Route::post('/charge/edit','EditController@update');
 Route::get('/debug','LoginController@dbshow');
 Route::get('debug/{id}', 'LoginController@dbedit');
 
-Route::get('/', 'LoginController@sessionkill');
+Route::get('/index', 'LoginController@sessionkill');
 /********************************
 *********************************/
 //認証確認用: 以下デバッグ用確認項目
