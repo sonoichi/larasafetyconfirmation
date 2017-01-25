@@ -76,7 +76,13 @@ class LoginController extends Controller
             'password'=>'required|min:8|max:8',
         ];
 
-        $validator = \Validator::make($credentials,$rules);
+        $message = [
+            'work_id.alpha_num' => '社員IDは半角英数字のみ有効です',
+            'password.min' => 'パスワードは8文字になります',
+            'password.max' => 'パスワードは8文字になります',
+        ];
+
+        $validator = \Validator::make($credentials,$rules,$message);
 
         $password = Input::get('password');
         $work_id = Input::get('work_id');
@@ -119,14 +125,17 @@ class LoginController extends Controller
         ];
 
         $rules = [
-            'work_id'=>'required|alpha_num',
+            'work_id'=>'required|alpha_num', // 全角が普通に通るので要修正
             'password'=>'required|min:8|max:8',
         ];
-
+        
         $message = [
-            'work_id' => '社員IDが未入力です',
-            'password' => 'パスワードが未入力です',
+            'work_id.alpha_num' => '社員IDは半角英数字のみ有効です',
+            'password.min' => 'パスワードは8文字になります',
+            'password.max' => 'パスワードは8文字になります',
         ];
+
+       // ['wok_id'=>'regex:/^[a-zA-Z0-9]+$/']// 半角英数字チェック
 
         $validator = \Validator::make($credentials,$rules,$message);
 
@@ -135,8 +144,8 @@ class LoginController extends Controller
           ->whereNotIn('safe_info.safety', ['問題ない'])
           ->get();
 
-        $password = Input::get('password');
-        $work_id = Input::get('work_id');
+        $password = Input::get('password'); // 個別取得
+        $work_id = Input::get('work_id');   // 個別取得
         
           //セッション保存
         Session::put('work_id', $work_id);

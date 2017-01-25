@@ -9,22 +9,29 @@
   </div>
     <form class="form-horizontal" role="form" method="POST" action="/charge/list">
         {{ csrf_field() }}
-    <div>
-      <p>以下のエラーが発生しています。</p>
-    </div>
-
-
+        @if($errors->has('work_id') or $errors->has('password'))
+            <div class="container">
+               <p>以下の項目が入力条件と一致していないためログインできません。</p>
+               <strong class="text-danger">{{ $errors->first('work_id') }}</strong>
+               <strong class="text-danger">{{ $errors->first('password') }}</strong>
+            </div>
+        @endif
+        @if(!($errors->has('work_id') or $errors->has('password')))
+            <div class="container">
+              <p>入力項目はすべて必須となります</p>
+            </div>
+        @endif
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
             <label for="work_id" class="col-md-4 control-label">社員ID</label>
 
             <div class="col-md-6">
                 <input id="work_id" type="work_id" class="form-control" name="work_id" value="{{ old('work_id') }}" required autofocus>
 
-                @if ($errors->has('work_id'))
+                <!--@if ($errors->has('work_id'))
                     <span class="help-block">
                         <strong>{{ $errors->first('work_id') }}</strong>
                     </span>
-                @endif
+                @endif-->
             </div>
         </div>
 
@@ -34,11 +41,11 @@
             <div class="col-md-6">
                 <input id="password" type="password" class="form-control" name="password" required>
 
-                @if ($errors->has('password'))
+                <!--@if ($errors->has('password'))
                     <span class="help-block">
                         <strong>{{ $errors->first('password') }}</strong>
                     </span>
-                @endif
+                @endif-->
             </div>
         </div>
 <!--
@@ -63,7 +70,7 @@
                 </a>-->
             </div>
         </div>
-        <div>
+        <div style="text-align:right">
           <a class="btn btn-default" href="{{ url('../') }}">戻る</a>
         </div>
     </form>
