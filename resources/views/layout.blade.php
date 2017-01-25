@@ -97,7 +97,7 @@ $(function(){
         // カスタムメッセージ版    
 
         // 確認用簡易版
-        if(confirm("登録しても宜しいでしょうか？")){
+        if(confirm("登録してもよろしいでしょうか？")){
             return true;
         }else{
             return false;

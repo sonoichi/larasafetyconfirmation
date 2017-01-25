@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container">
+<div class="container panel panel-default" style="margin-top:2em">
   <div style="text-align:center;">
     <h1>ログイン</h1>
     <p>こちらは管理者向けログイン画面となります。</p>
@@ -70,10 +70,9 @@
                 </a>-->
             </div>
         </div>
-        <div style="text-align:right">
+    </form>
+        <div style="text-align:right; margin:0 2em 2em auto">
           <a class="btn btn-default" href="{{ url('../') }}">戻る</a>
         </div>
-    </form>
-
 </div>
 @endsection
