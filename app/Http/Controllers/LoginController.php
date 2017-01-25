@@ -199,9 +199,14 @@ class LoginController extends Controller
 
     public function sessionkill(){
         Session::forget('work_id');
-        // 確認用 
-        //return Session::all();
-        return view('/index');
+        Session::forget('editWorker');
+        Session::forget('editWorker_id');
+        Session::forget('editSafety');
+        Session::forget('editComment');
+        Session::forget('editManager_comment');
+        // 確認用 return Session::all();
+        //return view('/index');
+        return redirect('charge/login');
         //return redirect()->route('../index');
     }
 
