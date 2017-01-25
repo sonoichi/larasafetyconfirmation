@@ -24,7 +24,8 @@ class EditController extends Controller
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
           ->whereNotIn('safe_info.safety', ['問題ない'])
           ->get();
-
+        
+        //
         return view('charge/list',compact('users'));
     }
 
