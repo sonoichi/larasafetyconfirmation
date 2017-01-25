@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="container" style="margin-right: auto; margin-left:auto;">
+<div class="container panel panel-default" style="margin:2em auto 0 auto;">
   <h2>安否確認：入力フォーム</h2>
 
   <p style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
@@ -43,7 +43,7 @@
             </div>
         </div>
     {!! Form::close() !!}
-    <div class="col-md-12">
+    <div class="col-md-12" style="margin:1.2em">
         <a class="btn btn-default" href="../">戻る</a>
     </div>
 </div>

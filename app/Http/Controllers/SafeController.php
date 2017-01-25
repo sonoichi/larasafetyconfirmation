@@ -6,7 +6,8 @@ use Session;
 //use Illuminate\Http\Request;
 use Request;
 use Illuminate\Routing\Controller;
-
+use Input;
+use Redirect;
 class SafeController extends Controller
 {
     // DB接続
@@ -18,6 +19,24 @@ class SafeController extends Controller
             return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
         $input = \Request::all();
+
+        $credentials = [
+            'comment'=>Input::get('comment'),
+        ];
+        $rules = [
+            'comment'=>'required|max:30', 
+        ];
+        $message = [
+            'comment.max' => 'コメントは最大30文字までです。',
+        ];
+
+        $validator = \Validator::make($credentials,$rules,$message);
+        // if(Input::get('comment') <= 30){
+        //     return view('empolyee/confirm')
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
+
         // 確認用 
         //return Session::all();
         // 確認用 return Request::input('comment');
