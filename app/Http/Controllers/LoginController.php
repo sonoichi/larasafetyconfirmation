@@ -203,9 +203,14 @@ class LoginController extends Controller
         Session::forget('editWorker_id');
         Session::forget('editSafety');
         Session::forget('editComment');
+<<<<<<< HEAD
         Session::forget('editManeger_comment');
         // 確認用 
         //return Session::all();
+=======
+        Session::forget('editManager_comment');
+        // 確認用 return Session::all();
+>>>>>>> origin/master
         //return view('/index');
         return redirect('charge/login');
         //return redirect()->route('../index');
