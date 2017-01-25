@@ -45,6 +45,8 @@ Route::post('/employee/post','SafeController@store');
 //投稿後の確認画面
 Route::get('/employee/post', 'SafeController@postconfirm');
 
+
+
 //仮：DB接続確認用ルート
 
 // 編集画面処理

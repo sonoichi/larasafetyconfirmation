@@ -34,6 +34,9 @@
                 <button type="submit" class="confirmCheck btn btn-primary">
                     送信
                 </button>
+                <!--<div id="dialogConfirm">
+                  <p>送信しますか？</p>
+                </div>-->
                 <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
                 確認
                 </a>-->

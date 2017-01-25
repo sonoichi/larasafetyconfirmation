@@ -42,9 +42,10 @@ class SafeController extends Controller
 
 
     public function postconfirm(){
-        if(!Session::get('work_id')){
+        if(!Session::get('_token')){
             // return Session::all();
             return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
+        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }    
 }

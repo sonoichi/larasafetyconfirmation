@@ -76,7 +76,7 @@
 <script>
 $(function(){
     $(".confirmCheck").click(function(){
-        // カスタムメッセージ版    
+        // カスタムメッセージ版
 
         // 確認用簡易版
         if(confirm("送信してもよろしいでしょうか？")){
