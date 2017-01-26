@@ -42,7 +42,7 @@
                 </button>
                 <!-- 確認ダイアログ -->
                     <div id="dialog">
-                    <p>送信しますか？</p>
+                    <p>送信しても宜しいでしょうか？</p>
                     </div>
                 <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
                 確認

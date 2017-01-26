@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('css')
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+@endsection
+
 @section('content')
 <div class="container">
   <h2>安否確認：編集画面</h2>
@@ -32,7 +36,7 @@
 
 <h2>編集フォーム</h2>
 
-{!! Form::open(['action' => 'EditController@update']) !!}
+{!! Form::open(['action' => 'EditController@update','id' => 'editForm']) !!}
     {{ csrf_field() }}
 
     @foreach($editUser as $worker_list)
@@ -71,9 +75,13 @@
 
     <div style="text-align:right" class="form-group">
         <div class="col-md-12">
-            <button type="submit" class="edit btn btn-primary">
+            <button id="opener" type="button" class="edit btn btn-primary">
                 編集
             </button>
+            <!-- 確認ダイアログ -->
+                    <div id="dialog">
+                    <p>登録しても宜しいでしょうか？</p>
+                    </div>
         </div>
     </div>
 {!! Form::close() !!}
@@ -103,7 +111,27 @@ $(function(){
 </script>
 
 <!-- 確認ダイアログ -->
-<div>
- 登録しても宜しいでしょうか？
-</div>
+<script>
+$( "#dialog" ).dialog({ autoOpen: false });
+
+$( "#opener" ).click(function() {
+    $( "#dialog" ).dialog( "open" );
+    $( "#dialog" ).dialog({
+      //autoOpen: false,
+      title: "編集確認",
+      resizable: false,
+      height:240,
+      modal: true,
+      buttons: {
+        "はい": function() {
+        　$('#editForm').submit();
+        },
+        "いいえ": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+});
+</script>	
+
 @endsection

@@ -113,12 +113,12 @@ $(function(){
     $(".edit").click(function(){
         // カスタムメッセージ版    
 
-        // 確認用簡易版
-        if(confirm("登録してもよろしいでしょうか？")){
-            return true;
-        }else{
-            return false;
-        }
+        // 確認用簡易版: カスタム版作成したので不要
+        // if(confirm("登録してもよろしいでしょうか？")){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
     });
 });
 </script>
