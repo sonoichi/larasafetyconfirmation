@@ -9,13 +9,18 @@
   </div>
     <form class="form-horizontal" role="form" method="POST" action="/employee/confirm">
         {{ csrf_field() }}
-        @if($errors->has('work_id') or $errors->has('password'))
+        
             <div class="container">
-               <p>以下の項目が入力条件と一致していないためログインできません。</p>
-               <strong class="text-danger">{{ $errors->first('work_id') }}</strong>
-               <strong class="text-danger">{{ $errors->first('password') }}</strong>
+               <ul>
+               @if ($errors->has('work_id'))
+                 <li><strong class="text-danger">{{ $errors->first('work_id') }}</strong></li>
+               @endif
+               @if ($errors->has('password'))
+                 <li><strong class="text-danger">{{ $errors->first('password') }}</strong></li>
+               @endif
+               </ul>
             </div>
-        @endif
+        
         @if(!($errors->has('work_id') or $errors->has('password')))
             <div class="container">
               <p>入力項目はすべて必須となります</p>
@@ -25,7 +30,7 @@
             <label for="work_id" class="col-md-4 control-label">社員ID</label>
 
             <div class="col-md-6">
-                <input id="work_id" type="work_id" class="form-control" name="work_id" value="{{ old('work_id') }}" required autofocus>
+                <input id="work_id" type="work_id" class="form-control" name="work_id" value="{{ old('work_id') }}"  autofocus>
 
                 <!--@if ($errors->has('work_id'))
                     <span class="help-block">
@@ -39,7 +44,7 @@
             <label for="password" class="col-md-4 control-label">パスワード</label>
 
             <div class="col-md-6">
-                <input id="password" type="password" class="form-control" name="password" required>
+                <input id="password" type="password" class="form-control" name="password" >
 
                 <!--@if ($errors->has('password'))
                     <span class="help-block">

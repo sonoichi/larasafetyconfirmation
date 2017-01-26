@@ -82,7 +82,9 @@ class LoginController extends Controller
         ];
 
         $message = [
+            'work_id.required' => '社員IDが未入力です',
             'work_id.alpha_num' => '社員IDは半角英数字のみ有効です',
+            'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字になります',
             'password.max' => 'パスワードは8文字になります',
         ];
@@ -92,7 +94,7 @@ class LoginController extends Controller
         $password = Input::get('password');
         $work_id = Input::get('work_id');
         Session::put('work_id', $work_id);
-        if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
+        if(($password === (DB::table('worker_list')->where('password',$password)->value('password'))) and ((int)$work_id === (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))){
           return view('employee.confirm',$credentials);
           //確認用 return Session::all();
         }else{
@@ -142,7 +144,9 @@ class LoginController extends Controller
         ];
         
         $message = [
+            'work_id.required' => '社員IDが未入力です',
             'work_id.alpha_num' => '社員IDは半角英数字のみ有効です',
+            'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字になります',
             'password.max' => 'パスワードは8文字になります',
         ];
@@ -160,9 +164,9 @@ class LoginController extends Controller
           //セッション保存
         Session::put('work_id', $work_id);
 
-        if(($password == (DB::table('worker_list')->where('password',$password)->value('password'))) 
-        and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))
-        and ( (DB::table('worker_list')->where('work_id',$work_id)->value('name')) == (DB::table('worker_list')->where('work_id',$work_id)->value('manager_name')))){
+        if(($password === (DB::table('worker_list')->where('password',$password)->value('password'))) 
+        and ( (int)$work_id === (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))
+        and ( (DB::table('worker_list')->where('work_id',$work_id)->value('name')) === (DB::table('worker_list')->where('work_id',$work_id)->value('manager_name')))){
           //return Session::all();
           //Session::regenerateToken();
           return view('charge.list',compact('credentials','users'));
