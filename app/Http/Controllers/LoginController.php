@@ -139,7 +139,7 @@ class LoginController extends Controller
         ];
 
         $rules = [
-            'work_id'=>'required|regex:/^[0-9a-zA-Z]+$/', // 全角が普通に通るので要修正
+            'work_id'=>'required|regex:/^[0-9a-zA-Z]+$/', // 全角が普通に通るので要修正:正規表現で対応
             'password'=>'required|min:8|max:8',
         ];
         
