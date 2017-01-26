@@ -10,7 +10,7 @@
    {!! Form::open(['action' => 'SafeController@store']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
         {{ csrf_field() }}
-        <input type="hidden" name="work_id" value="{{$_POST['work_id']}}">
+        <input type="hidden" name="work_id" value="{{Session::get('work_id')}}">
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
             <div class="col-md-12">
             <h3>安否確認</h3>

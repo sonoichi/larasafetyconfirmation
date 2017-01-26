@@ -64,7 +64,7 @@ class LoginController extends Controller
         // if(Session::get('work_id')){
            //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         // }
-        //return view('employee.confirm');
+        return view('employee.confirm');
     }
 
     // ログイン時の処理
@@ -106,7 +106,7 @@ class LoginController extends Controller
 
     public function getlogout()
     {
-        //return view('employee.login');
+        return view('employee.login');
     }
 
 
@@ -114,16 +114,18 @@ class LoginController extends Controller
     
     // 外部からの編集画面呼出への処理
     public function getList(){
-        if(!Session::has('work_id')){
-            return view('/index');
+        
+        if(!Session::has('_token')){
+            return view('confirm.login');
         }
-        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        //return view('confirm.login');
+        //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }
 
     // ログイン時の処理
     // charge/login -> charge/list
     public function postlist() {
-
+        
         $credentials = [
             'work_id'=>Input::get('work_id'),
             'password'=>Input::get('password')
@@ -139,8 +141,6 @@ class LoginController extends Controller
             'password.min' => 'パスワードは8文字になります',
             'password.max' => 'パスワードは8文字になります',
         ];
-
-       // ['wok_id'=>'regex:/^[a-zA-Z0-9]+$/']// 半角英数字チェック
 
         $validator = \Validator::make($credentials,$rules,$message);
 
@@ -159,6 +159,7 @@ class LoginController extends Controller
         and ( $work_id == (DB::table('worker_list')->where('work_id',$work_id)->value('work_id')))
         and ( (DB::table('worker_list')->where('work_id',$work_id)->value('name')) == (DB::table('worker_list')->where('work_id',$work_id)->value('manager_name')))){
           //return Session::all();
+          //Session::regenerateToken();
           return view('charge.list',compact('credentials','users'));
         }else{
             return Redirect::back()
@@ -217,18 +218,21 @@ class LoginController extends Controller
 
 
     public function sessionkill(){
-        Session::forget('work_id');
-        Session::forget('editWorker');
-        Session::forget('editWorker_id');
-        Session::forget('editSafety');
-        Session::forget('editComment');
+        if(!Session::has('_token')){
+            return '無効です';
+        }
+        // Session::forget('work_id');
+        // Session::forget('editWorker');
+        // Session::forget('editWorker_id');
+        // Session::forget('editSafety');
+        // Session::forget('editComment');
 
-        Session::forget('editManeger_comment');
-        // 確認用 
-        //return Session::all();
+        // Session::forget('editManeger_comment');
+        Session::flush();
+        // 確認用 return Session::all();
 
         //return view('/index');
-        return redirect('charge/login');
+        return redirect('/');
         //return redirect()->route('../index');
     }
 

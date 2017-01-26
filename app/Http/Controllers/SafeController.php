@@ -26,7 +26,7 @@ class SafeController extends Controller
             'comment'=>Input::get('comment'),
         ];
         $rules = [
-            'comment'=>'required|max:30', 
+            'comment'=>'max:30', 
         ];
         $message = [
             'comment.max' => 'コメントは最大30文字までです。',

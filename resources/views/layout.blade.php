@@ -69,6 +69,15 @@
 <script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
       @yield('script')
+<!-- セッション 戻るボタンでの制限：いい方法があったら変更する（仮処置） -->
+<!--  -->
+<script>
+    history.pushState(null, null, null);
+
+    window.addEventListener("popstate", function() {
+        history.pushState(null, null, null);
+    });
+</script>
 <!-- 他で流用するかもしれない。まとめられる内容になったら以下をまとめる -->
 <!--
     .confirm  に対する送信確認
