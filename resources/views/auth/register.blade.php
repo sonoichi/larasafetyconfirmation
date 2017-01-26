@@ -99,13 +99,13 @@
 
                         <div class="form-group">
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary">
+                                <button  id="" type="submit" class="registBtn btn btn-primary">
                                     登録
                                 </button>
                             </div>
                         </div>
                     </form>
-                    <div class="col-md-12" style="text-align:right;"></p><a id="registBtn" class="btn btn-default" href="../">戻る</a><p></div>
+                    <div class="col-md-12" style="text-align:right;"></p><a class="btn btn-default" href="../">戻る</a><p></div>
                 </div>
             </div>
         </div>
@@ -118,14 +118,21 @@
 @endsection
 
 @section('script')
-<!--<script>
- $(function($){
+<!--
+    .edit　に対する編集確認
+-->
+<script>
+$(function(){
+    $(".registBtn").click(function(){
+        // カスタムメッセージ版
 
-  $("#registDialog").dialog({ autoOpen: false });
- 
-  $("#registBtn").click(function(){
-    $("#registDialog").dialog("open");
-  });
-})
-</script>-->
+        // 確認用簡易版
+        if(confirm("送信してもよろしいでしょうか？")){
+            return true;
+        }else{
+            return false;
+        }
+    });
+});
+</script>
 @endsection
