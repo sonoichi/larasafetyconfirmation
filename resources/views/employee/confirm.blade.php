@@ -22,8 +22,8 @@
             <h3>安否確認</h3>
             <p>調子はどうですか？</p>
                 <input id="noReport" type="hidden" name="safety" value="報告なし">
-                <input id="good" type="radio" name="safety" value="問題ない" checked>もんだいなし　　　
-                <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり
+                <input id="good" type="radio" name="safety" value="問題ない" checked>もんだいなし <i class="icon-like"></i>　　　
+                <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり <i class="icon-dislike"></i>
             </div>
         </div>
 

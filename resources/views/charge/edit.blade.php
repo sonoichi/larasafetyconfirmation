@@ -45,9 +45,9 @@
     <h3>状態</h3>
     <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
         <div class="col-md-12">
-            <input id="noReport" type="radio" name="safety" value="報告なし">報告なし　　　
-            <input id="good" type="radio" name="safety" value="問題ない">もんだいなし　　　
-            <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり
+            <input id="noReport" type="radio" name="safety" value="報告なし">報告なし <i class="icon-user-unfollow"></i>　　　　
+            <input id="good" type="radio" name="safety" value="問題ない">もんだいなし <i class="icon-like"></i>　　　　
+            <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり <i class="icon-dislike"></i>
             <!--<p class="alert-info">* ボタンが選択されない場合は報告なしになります。</p>-->
             <p></p>
         </div>
