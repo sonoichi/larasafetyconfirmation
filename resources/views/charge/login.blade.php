@@ -12,8 +12,13 @@
         @if($errors->has('work_id') or $errors->has('password'))
             <div class="container">
             <ul>
+            @if($errors->has('work_id') and !($errors->has('password')))
                <li><strong class="text-danger">{{ $errors->first('work_id') }}</strong></li>
+            @elseif(!($errors->has('work_id')) and ($errors->has('password')))
                <li><strong class="text-danger">{{ $errors->first('password') }}</strong></li>
+            @else
+               <li><strong class="text-danger">社員ＩＤとパスワードが未入力です</strong></li><!-- 要修正 -->
+            @endif
             </ul>
             </div>
         @endif

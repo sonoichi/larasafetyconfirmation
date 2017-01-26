@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Redirect;
 
 class RegisterController extends Controller
 {
@@ -56,7 +57,6 @@ class RegisterController extends Controller
             'name.required' => '名前が未入力です',
             'name.max' => '名前は最大30文字です',
             'email.required' => 'メールが未入力です',
-            'email' => 'メールが正しくありません',
             'work_id.required' => '社員IDが未入力です',
             'work_id.alpha_num' => '社員IDは半角英数字のみ利用可能です',
             'password.required' => 'パスワードが未入力です',
@@ -64,6 +64,7 @@ class RegisterController extends Controller
             'password.max' => 'パスワードは8文字です',
             'password.confirm' => 'パスワードが一致しません'
         ]);
+        //return $val;
         return $val;
     }
 

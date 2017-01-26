@@ -100,7 +100,10 @@ $(function(){
       console.log('報告なし');
     }
 });
-
-
 </script>
+
+<!-- 確認ダイアログ -->
+<div>
+ 登録しても宜しいでしょうか？
+</div>
 @endsection
