@@ -78,7 +78,7 @@
     </div>
 {!! Form::close() !!}
 <div class="col-md-12">
-    <a class="btn btn-default" href="{{ action('LoginController@charge') }}">戻る</a>
+    <a class="btn btn-default" href="{{ action('LoginController@getList') }}">戻る</a>
 </div>
 
 </div>

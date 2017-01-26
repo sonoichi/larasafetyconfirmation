@@ -118,7 +118,12 @@ class LoginController extends Controller
         if(!Session::has('_token')){
             return view('confirm.login');
         }
-        //return view('confirm.login');
+        $users = DB::table('safe_info')
+          ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
+          ->whereNotIn('safe_info.safety', ['問題ない'])
+          ->get();
+
+        return view('charge.list',compact('users'));
         //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }
 
