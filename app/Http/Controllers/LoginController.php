@@ -77,13 +77,13 @@ class LoginController extends Controller
         ];
 
         $rules = [
-            'work_id'=>'required',
+            'work_id'=>'required|regex:/^[0-9a-zA-Z]+$/',
             'password'=>'required|min:8|max:8',
         ];
 
         $message = [
             'work_id.required' => '社員IDが未入力です',
-            'work_id.alpha_num' => '社員IDは半角英数字のみ有効です',
+            'work_id.regex' => '社員IDは半角英数字のみ有効です',
             'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字になります',
             'password.max' => 'パスワードは8文字になります',
@@ -139,13 +139,13 @@ class LoginController extends Controller
         ];
 
         $rules = [
-            'work_id'=>'required|alpha_num', // 全角が普通に通るので要修正
+            'work_id'=>'required|regex:/^[0-9a-zA-Z]+$/', // 全角が普通に通るので要修正
             'password'=>'required|min:8|max:8',
         ];
         
         $message = [
             'work_id.required' => '社員IDが未入力です',
-            'work_id.alpha_num' => '社員IDは半角英数字のみ有効です',
+            'work_id.regex' => '社員IDは半角英数字のみ有効です',
             'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字になります',
             'password.max' => 'パスワードは8文字になります',

@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('css')
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+@endsection
+
 @section('content')
 <div class="container panel panel-default" style="margin:2em auto 0 auto;">
   <h2>安否確認：入力フォーム</h2>
@@ -9,7 +13,7 @@
         <a class="btn btn-default" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
     </div>
 
-   {!! Form::open(['action' => 'SafeController@store']) !!}
+   {!! Form::open(['action' => 'SafeController@store', 'id' => 'confirmForm']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
         {{ csrf_field() }}
         <input type="hidden" name="work_id" value="{{Session::get('work_id')}}">
@@ -33,12 +37,13 @@
 
         <div class="form-group">
             <div style="text-align:right;" class="col-md-2 col-md-offset-10">
-                <button type="submit" class="confirmCheck btn btn-primary">
+                <button id="opener" type="button" class="confirmCheck btn btn-primary">
                     送信
                 </button>
-                <!--<div id="dialogConfirm">
-                  <p>送信しますか？</p>
-                </div>-->
+                <!-- 確認ダイアログ -->
+                    <div id="dialog">
+                    <p>送信しますか？</p>
+                    </div>
                 <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
                 確認
                 </a>-->
@@ -47,4 +52,30 @@
     {!! Form::close() !!}
 
 </div>
+
+@endsection
+
+@section('script')
+<script>
+$( "#dialog" ).dialog({ autoOpen: false });
+
+$( "#opener" ).click(function() {
+    $( "#dialog" ).dialog( "open" );
+    $( "#dialog" ).dialog({
+      //autoOpen: false,
+      title: "送信確認",
+      resizable: false,
+      height:240,
+      modal: true,
+      buttons: {
+        "はい": function() {
+        　$('#confirmForm').submit();
+        },
+        "いいえ": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+});
+</script>	
 @endsection

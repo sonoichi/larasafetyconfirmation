@@ -63,6 +63,7 @@
                 margin-bottom: 30px;
             }
         </style>
+        @yield('css')
     </head>
     <body>
 <script>
@@ -91,14 +92,15 @@
 <script>
 $(function(){
     $(".confirmCheck").click(function(){
-        // カスタムメッセージ版
+        // カスタムメッセージ版 
 
-        // 確認用簡易版
-        if(confirm("送信してもよろしいでしょうか？")){
-            return true;
-        }else{
-            return false;
-        }
+
+        //確認用簡易版: カスタム版作成したので不要
+        // if(confirm("送信してもよろしいでしょうか？")){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
     });
 });
 </script>

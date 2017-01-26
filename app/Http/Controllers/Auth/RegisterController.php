@@ -49,15 +49,18 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         $val = Validator::make($data, [
-            'name' => 'required|max:30',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:30|',
+            'email' => 'required|email|max:30|unique:users',
             'password' => 'required|min:8|max:8|confirmed',
-            'work_id' => 'required|alpha_num'
+            'work_id' => 'required|alpha_num|regex:/^[!-~]+$/'
         ],[
             'name.required' => '名前が未入力です',
             'name.max' => '名前は最大30文字です',
-            'email.required' => 'メールが未入力です',
+            'email.required' => 'メールアドレスが未入力です',
+            'email.max' => 'アドレスが長すぎて登録できません',
+            'email' => '正しいメールアドレスではありません',
             'work_id.required' => '社員IDが未入力です',
+            'work_id.regex' => '社員IDは半角英数字のみ利用可能です',
             'work_id.alpha_num' => '社員IDは半角英数字のみ利用可能です',
             'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字です',
