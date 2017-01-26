@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
 <div class="container" style="margin-top:2em">
@@ -105,10 +105,27 @@
                             </div>
                         </div>
                     </form>
-                    <div class="col-md-12" style="text-align:right;"></p><a class="btn btn-default" href="../">戻る</a><p></div>
+                    <div class="col-md-12" style="text-align:right;"></p><a id="registBtn" class="btn btn-default" href="../">戻る</a><p></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- 確認ダイアログ -->
+<!--<div id="registDialog">
+  <p>登録しますか？</p>
+</div>-->
+@endsection
+
+@section('script')
+<!--<script>
+ $(function($){
+
+  $("#registDialog").dialog({ autoOpen: false });
+ 
+  $("#registBtn").click(function(){
+    $("#registDialog").dialog("open");
+  });
+})
+</script>-->
 @endsection

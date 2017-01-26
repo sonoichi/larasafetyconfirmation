@@ -50,7 +50,7 @@ class LoginController extends Controller
     // Middlewere設定でなんとかなるはずだけど、なんかダメっぽい
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout','employee.confirm','charge.list']);
+        //$this->middleware('guest', ['except' => 'index','employee.login','charge.login','register']);
     }
 
     // メソッドの概要:詳細
