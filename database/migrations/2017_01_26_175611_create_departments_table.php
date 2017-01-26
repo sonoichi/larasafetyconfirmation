@@ -14,6 +14,13 @@ class CreateDepartmentsTable extends Migration
     public function up()
     {
         //
+         Schema::create('department_list', function (Blueprint $table) {
+            $table->increments('department_code');
+            $table->string('manager_name');
+            $table->string('department');
+            $table->string('manager_tell');
+            $table->timestamps();
+        });       
     }
 
     /**
@@ -24,5 +31,6 @@ class CreateDepartmentsTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('department_list');
     }
 }

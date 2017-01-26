@@ -14,6 +14,13 @@ class CreateManagersTable extends Migration
     public function up()
     {
         //
+         Schema::create('manager_list', function (Blueprint $table) {
+            $table->increments('department_code');
+            $table->string('manager_name');
+            $table->string('manager_zip');
+            $table->string('manager_tell');
+            $table->timestamps();
+        }); 
     }
 
     /**

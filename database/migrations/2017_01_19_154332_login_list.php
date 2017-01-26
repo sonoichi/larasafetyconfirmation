@@ -13,7 +13,7 @@ class LoginList extends Migration
      */
     public function up()
     {
-        Schema::create('worker_list', function (Blueprint $table) {
+        Schema::create('login_list', function (Blueprint $table) {
             $table->increments('work_id');
             $table->string('name');
             $table->string('password');
@@ -27,6 +27,6 @@ class LoginList extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('login_list');
     }
 }

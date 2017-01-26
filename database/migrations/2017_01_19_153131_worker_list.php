@@ -33,6 +33,6 @@ class WorkerList extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('worker_list');
     }
 }

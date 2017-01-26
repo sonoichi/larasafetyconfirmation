@@ -29,6 +29,6 @@ class SafeInfo extends Migration
      */
     public function down()
     {
-        //
+         Schema::dropIfExists('safe_info');
     }
 }
