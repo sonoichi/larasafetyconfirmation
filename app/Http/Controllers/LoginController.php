@@ -61,9 +61,9 @@ class LoginController extends Controller
     public function getlogin()
     {
         //return Session::all();
-        // if(Session::get('work_id')){
-           //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
-        // }
+        if(Session::get('_token')){
+           return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        }
         return view('employee.confirm');
     }
 
