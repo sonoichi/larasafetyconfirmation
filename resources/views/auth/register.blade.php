@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('css')
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+@endsection
+
 @section('content')
 <div class="container" style="margin-top:2em">
     <div class="row">
@@ -7,7 +11,7 @@
             <div class="panel panel-default">
                 <!--<div class="panel-heading">ユーザー登録</div>-->
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form id="registForm" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
                     <h2>ユーザーの新規登録</h2>
                     <p>新規のユーザ登録をする際はこちらをご利用ください。<br/>
@@ -99,9 +103,13 @@
 
                         <div class="form-group">
                             <div class="col-md-6">
-                                <button  id="" type="submit" class="registBtn btn btn-primary">
+                                <button id="opener" type="button" class="registBtn btn btn-primary">
                                     登録
                                 </button>
+                            <!-- 確認ダイアログ -->
+                            <div id="dialog">
+                            <p>登録しても宜しいでしょうか？</p>
+                            </div>
                             </div>
                         </div>
                     </form>
@@ -118,21 +126,26 @@
 @endsection
 
 @section('script')
-<!--
-    .edit　に対する編集確認
--->
 <script>
-$(function(){
-    $(".registBtn").click(function(){
-        // カスタムメッセージ版
+$( "#dialog" ).dialog({ autoOpen: false });
 
-        // 確認用簡易版
-        if(confirm("送信してもよろしいでしょうか？")){
-            return true;
-        }else{
-            return false;
+$( "#opener" ).click(function() {
+    $( "#dialog" ).dialog( "open" );
+    $( "#dialog" ).dialog({
+      //autoOpen: false,
+      title: "登録確認",
+      resizable: false,
+      height:240,
+      modal: true,
+      buttons: {
+        "はい": function() {
+        　$('#registForm').submit();
+        },
+        "いいえ": function() {
+          $( this ).dialog( "close" );
         }
+      }
     });
 });
-</script>
+</script>	
 @endsection
