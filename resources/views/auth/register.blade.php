@@ -18,10 +18,18 @@
                     or $errors->has('password'))
                     <div class="container">
                       <ul>
-                        <li><strong>{{ $errors->first('work_id') }}</strong></li>
-                        <li><strong>{{ $errors->first('name') }}</strong></li>
-                        <li><strong>{{ $errors->first('email') }}</strong></li>
-                        <li><strong>{{ $errors->first('password') }}</strong></li>
+                      @if ($errors->has('work_id'))
+                        <li><strong class="text-danger">{{ $errors->first('work_id') }}</strong></li>
+                      @endif
+                      @if ($errors->has('name'))
+                        <li><strong class="text-danger">{{ $errors->first('name') }}</strong></li>
+                      @endif
+                      @if ($errors->has('email'))
+                        <li><strong class="text-danger">{{ $errors->first('email') }}</strong></li>
+                      @endif
+                      @if ($errors->has('password'))
+                        <li><strong class="text-danger">{{ $errors->first('password') }}</strong></li>
+                      @endif
                       </ul>
                     </div>
                     @endif
@@ -29,7 +37,7 @@
                             <label for="work_id" class="col-md-4 control-label">社員ID</label>
 
                             <div class="col-md-6">
-                                <input id="work_id" type="text" class="form-control" name="work_id" value="{{ old('work_id') }}" required autofocus>
+                                <input id="work_id" type="text" class="form-control" name="work_id" value="{{ old('work_id') }}"  autofocus>
 
                                 <!--@if ($errors->has('work_id'))
                                     <span class="help-block">
@@ -43,7 +51,7 @@
                             <label for="name" class="col-md-4 control-label">名前</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus>
 
                                 <!--@if ($errors->has('name'))
                                     <span class="help-block">
@@ -57,7 +65,7 @@
                             <label for="email" class="col-md-4 control-label">メールアドレス</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" >
 
                                 <!--@if ($errors->has('email'))
                                     <span class="help-block">
@@ -71,7 +79,7 @@
                             <label for="password" class="col-md-4 control-label">パスワード</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" >
 
                                 <!--@if ($errors->has('password'))
                                     <span class="help-block">
@@ -85,7 +93,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">確認用パスワード</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" >
                             </div>
                         </div>
 
