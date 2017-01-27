@@ -88,4 +88,19 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function send(){
+        $options = [
+            'from' => 'hoge@hogehogehogehoge.hoge',
+            'from_jp' => 'ほげほげ',
+            'to' => 'fuga@fugafugafugafuga.fuga',
+            'subject' => 'テストメール',
+            'template' => 'emails.hoge.mail', // resources/views/emails/hoge/mail.blade.php
+        ];
+
+        $data = [
+            'hoge' => 'hogehoge',
+        ];
+        Mail::to($options['to'])->send(new HogeShipped($options, $data));
+    }
+
 }

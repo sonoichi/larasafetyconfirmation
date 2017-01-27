@@ -62,6 +62,7 @@ class LoginController extends Controller
     {
         //return Session::all();
         if(!Session::get('work_id')){
+            Session::flush();
             return redirect('/');
            //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
@@ -224,6 +225,7 @@ class LoginController extends Controller
     }
 
     public function edit(){
+        Session::flush();
         return redirect('/');
     }
 
@@ -244,6 +246,7 @@ class LoginController extends Controller
 
     public function sessionkill(){
         if(!Session::has('work_id')){
+            Session::flush();
             return redirect('/');
             //return '無効です';
         }
