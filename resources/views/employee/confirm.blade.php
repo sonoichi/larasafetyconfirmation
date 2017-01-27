@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container panel panel-default" style="margin:2em auto 0 auto;">
-  <h2>安否確認：入力フォーム</h2>
+  <h2>安否確認：入力</h2>
 
   <p style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
     <div class="col-md-12" style="margin:1.2em; text-align:right;">
