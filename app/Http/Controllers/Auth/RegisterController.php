@@ -67,7 +67,7 @@ class RegisterController extends Controller
             'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字です',
             'password.max' => 'パスワードは8文字です',
-            'password.confirm' => 'パスワードが一致しません'
+            'password.confirmed' => 'パスワードが一致しません'
         ]);
         return $val;
     }
