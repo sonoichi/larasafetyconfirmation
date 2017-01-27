@@ -67,6 +67,9 @@
         @yield('css')
     </head>
     <body>
+    
+      <noscript><div class="container jumbotron"><p class="text-danger">このページはJavaScriptを利用しています。JavaScriptを有効にしてご利用ください</p></div></noscript>
+    
 <script>
     window.Laravel = <?php echo json_encode([
         'csrfToken' => csrf_token(),
