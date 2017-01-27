@@ -122,6 +122,7 @@ class LoginController extends Controller
         if(!Session::has('work_id')){
             return redirect('/');
         }else if((DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name')) !== (DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('manager_name')) ){
+            // 上の式をなんとかしたい
             Session::flush();
             return redirect('/');
         }
