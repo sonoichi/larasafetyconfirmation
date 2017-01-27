@@ -9,6 +9,7 @@ class EditController extends Controller
 {
     public function update(Request $request)
     {
+
         $input = \Request::all();
         //確認用 
         // print_r($input);
@@ -30,9 +31,12 @@ class EditController extends Controller
     }
 
     public function link(){
-        if(Session::get('_token')){
-            return view('/');
+        if(Session::get('work_id')){
+            return redirect('/');
             //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';   
+        }else if((DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name')) !== (DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('manager_name')) ){
+            Session::flush();
+            return redirect('/');
         }
     }
 }

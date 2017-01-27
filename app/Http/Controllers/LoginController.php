@@ -116,11 +116,16 @@ class LoginController extends Controller
     // 管理者用認証処理
     
     // 外部からの編集画面呼出への処理
+    // charge/login -> charge/list
     public function getList(){
         
         if(!Session::has('work_id')){
             return redirect('/');
+        }else if((DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name')) !== (DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('manager_name')) ){
+            Session::flush();
+            return redirect('/');
         }
+        //return Session::get('work_id');
 
 
         $users = DB::table('safe_info')
@@ -188,7 +193,13 @@ class LoginController extends Controller
           Session::forget('work_id');
           return redirect('/');
           //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+        }else if((DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name')) !== (DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('manager_name')) ){
+            Session::flush();
+            return redirect('/');
         }
+
+
+
         
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();
         Session::put('editWorker', $editUser); // 編集用ユーザーID :: view中の表示に利用しているので下手にいじれない
@@ -212,7 +223,7 @@ class LoginController extends Controller
     }
 
     public function edit(){
-        //return view('charge.edit',compact('editUser'));
+        return redirect('/');
     }
 
 
