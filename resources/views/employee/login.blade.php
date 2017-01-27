@@ -12,10 +12,19 @@
         
             <div class="container">
                <ul>
-               @if ($errors->has('work_id'))
+               {{-- エラーパターン 社員ID:3 * パスワード：3 => 計:9 --}}
+               {{-- 何かいい方法があったら変更する --}}     
+                                                                                {{-- エラーがないとき:1 --}}
+               @if ($errors->has('work_id')  and !($errors->has('password'))  ) {{-- 社員IDのみエラー：2 --}}
                  <li><strong class="text-danger">{{ $errors->first('work_id') }}</strong></li>
                @endif
-               @if ($errors->has('password'))
+               @if ($errors->has('password') and !($errors->has('work_id'))  )  {{-- パスワードのみエラー：2 --}}
+                 <li><strong class="text-danger">{{ $errors->first('password') }}</strong></li>
+               @endif
+               @if ($errors->first('work_id') == '社員IDが未入力です' and $errors->first('password') == 'パスワードが未入力です' )  {{-- 社員IDとパスワードが未入力：1 --}}
+                 <li><strong class="text-danger">社員IDとパスワードが未入力です</strong></li>
+               @elseif ($errors->has('password') and $errors->has('work_id'))     {{-- 社員IDとぱすわーどのエラー（両方未入力を除く）:3 --}}
+                 <li><strong class="text-danger">{{ $errors->first('work_id') }}</strong></li>
                  <li><strong class="text-danger">{{ $errors->first('password') }}</strong></li>
                @endif
                </ul>

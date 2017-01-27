@@ -12,7 +12,7 @@ use Redirect;
 use Validator; // 追加
 class SafeController extends Controller
 {
-    // DB接続
+    // DB接続 長くなってきたらModelに移す
     // employee/confirm -> employee/post 
     public function store(Request $request)
     {

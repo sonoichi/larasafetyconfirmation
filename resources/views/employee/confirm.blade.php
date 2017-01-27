@@ -16,6 +16,14 @@
    {!! Form::open(['action' => 'SafeController@store', 'id' => 'confirmForm']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
         {{ csrf_field() }}
+
+        @if(($errors->has('comment')))
+        <p>入力に誤りがあります</p>
+            <ul>
+              <li><strong class="text-danger">{{ $errors->first('comment') }}</strong></li>
+            </ul>
+        @endif
+
         <input type="hidden" name="work_id" value="{{Session::get('work_id')}}">
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
             <div class="col-md-12">
@@ -28,7 +36,7 @@
         </div>
 
         <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-            <label for="comment" class="col-md-12 control-label">コメントを残す</label>
+            <label for="comment" class="col-md-12 control-label"><br/>コメントを残す</label>
 
             <div class="col-md-12">
                 <input id="comment" type="comment" class="form-control" name="comment">
