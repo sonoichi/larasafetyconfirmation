@@ -62,7 +62,8 @@ class LoginController extends Controller
     {
         //return Session::all();
         if(!Session::get('work_id')){
-           return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+            return redirect('/');
+           //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
         return view('employee.confirm');
     }
@@ -117,9 +118,11 @@ class LoginController extends Controller
     // 外部からの編集画面呼出への処理
     public function getList(){
         
-        if(!Session::has('_token')){
-            return view('confirm.login');
+        if(!Session::has('work_id')){
+            return redirect('/');
         }
+
+
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
           ->whereNotIn('safe_info.safety', ['問題ない'])
@@ -183,7 +186,8 @@ class LoginController extends Controller
         //return Session::all();
         if(!Session::has('work_id')){
           Session::forget('work_id');
-          return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+          return redirect('/');
+          //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
         
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();
@@ -228,7 +232,8 @@ class LoginController extends Controller
 
     public function sessionkill(){
         if(!Session::has('work_id')){
-            return '無効です';
+            return redirect('/');
+            //return '無効です';
         }
         // Session::forget('work_id');
         // Session::forget('editWorker');

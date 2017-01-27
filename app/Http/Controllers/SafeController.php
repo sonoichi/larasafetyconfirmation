@@ -18,7 +18,8 @@ class SafeController extends Controller
     {
         if(!Session::get('work_id')){
             //return Session::all();
-            return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+            return redirect('/');
+            //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
         $input = \Request::all();
 
@@ -61,10 +62,11 @@ class SafeController extends Controller
 
 
     public function postconfirm(){
-        if(!Session::get('_token')){
+        if(!Session::get('work_id')){
              //return Session::all();
-            return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+             return redirect('/');
+            //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
-        return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
+       // return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
     }    
 }

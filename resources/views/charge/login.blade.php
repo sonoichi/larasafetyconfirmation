@@ -29,7 +29,7 @@
                @endif
                </ul>
             </div>
-            
+
         @if(!($errors->has('work_id') or $errors->has('password')))
             <div class="container">
               <p>入力項目はすべて必須となります</p>
