@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Redirect;
-
+use DB;
 class RegisterController extends Controller
 {
     /*
@@ -87,6 +87,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => ($data['password']),
             'department' => ($data['department']),
+            'manager_name' => (DB::table('worker_list')->where('department' ,$data['department'])->value("manager_name")),
         ]);
 
         return User::create([
