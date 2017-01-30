@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Lists; // 追加
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -80,13 +81,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        Lists::create([
             'name' => $data['name'],
             'work_id' => $data['work_id'],
             'email' => $data['email'],
             'password' => ($data['password']),
         ]);
 
+        return User::create([
+            'name' => $data['name'],
+            'work_id' => $data['work_id'],
+            'email' => $data['email'],
+            'password' => ($data['password']),
+        ]);
 
     }
 

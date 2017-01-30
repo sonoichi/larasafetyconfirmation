@@ -74,9 +74,9 @@ return [
         //     'driver' => 'database',
         //     'table' => 'worker_list',
         // ],
-        // 'admins' => [
-        //     'driver' => 'database',
-        //     'table' => 'worker_list',
+        // 'lists' => [
+        //     'driver' => 'eloquent',
+        //     'model' => 'App\Lists::class',
         // ],
     ],
 
