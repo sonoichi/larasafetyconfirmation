@@ -86,6 +86,7 @@ class RegisterController extends Controller
             'work_id' => $data['work_id'],
             'email' => $data['email'],
             'password' => ($data['password']),
+            'department' => ($data['department']),
         ]);
 
         return User::create([

@@ -51,6 +51,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="department" class="col-md-4 control-label">所属</label>
+
+                            <div class="col-md-6">
+                                <!--<input id="department" type="text" class="form-control" name="department" value="{{ old('department') }}" autofocus>-->
+                                <select class="form-control" name="department">
+                                    <option value="営業">営業</option>{{-- そのうちループさせる --}}
+                                    <option value="営業第二">営業第二</option>
+                                    <option value="営業第三">営業第三</option>
+                                    <option value="営業第四">営業第四</option>
+                                    <option value="営業第五">営業第五</option>
+                                </select>
+                                <!--@if ($errors->has('department'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('department') }}</strong>
+                                    </span>
+                                @endif-->
+                            </div>
+                        </div>
+                        
+
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">名前</label>
 
