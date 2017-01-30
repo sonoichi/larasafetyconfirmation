@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Register extends Model
+class Lists extends Model
 {
     //
-    protected $table = 'users';
+    protected $table = 'worker_list';
     public $timestamps = false;
     protected $fillable = ['work_id', 'name', 'email', 'tell','password'];
-
-
 }
