@@ -21,6 +21,7 @@ class SafeController extends Controller
             return redirect('/');
             //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
+
         $input = \Request::all();
 
         $credentials = [

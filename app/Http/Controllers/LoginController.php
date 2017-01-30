@@ -20,6 +20,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Redirect;
 use Session;
+use Mail;
 // メソッド一覧
 /*
   概要
@@ -187,7 +188,7 @@ class LoginController extends Controller
         }
     }
 
-    // 
+    // 入場
     // charge/edit -> charge/edit/{id}
     public function getedit($id){
         //return Session::all();
@@ -200,7 +201,13 @@ class LoginController extends Controller
             return redirect('/');
         }
 
-
+          //振り分けようのメールアドレスをつくる
+          // $noReportMail = 
+        if(DB::table('safe_info')->where('work_id',$id)->value('safety')  == '報告なし'){
+            Mail::send('email.safe', ['name' => (DB::table('worker_list')->where('work_id', $id)->value('name'))], function($message) {
+                $message->to('handa.sonoichi@gmail.com')->subject('安否報告なしのための確認連絡'); //確認用メール
+            });
+        }
 
         
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();
@@ -250,12 +257,6 @@ class LoginController extends Controller
             return redirect('/');
             //return '無効です';
         }
-        // Session::forget('work_id');
-        // Session::forget('editWorker');
-        // Session::forget('editWorker_id');
-        // Session::forget('editSafety');
-        // Session::forget('editComment');
-
         // Session::forget('editManeger_comment');
         Session::flush();
         // 確認用 return Session::all();

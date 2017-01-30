@@ -61,6 +61,16 @@ Route::get('/debug','LoginController@dbshow');
 Route::get('debug/{id}', 'LoginController@dbedit');
 
 Route::get('/logout', 'LoginController@sessionkill');
+
+
+// メール設定(確認用)
+Route::get('safe/{name?}', function($name = "ゲスト") {
+    Mail::send('email.safe', ['name' => $name], function($message) {
+        $message->to('')->subject('安否報告なしのための確認連絡');
+    });
+    return "Welcome メッセージを $name に送りました";
+});
+
 /********************************
 *********************************/
 //認証確認用: 以下デバッグ用確認項目
