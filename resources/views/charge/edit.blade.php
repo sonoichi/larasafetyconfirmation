@@ -35,6 +35,7 @@
   <hr>
 
 <h2>編集フォーム</h2>
+<!--<a class="btn btn-danger col-xs-offset-10 col-xs-2" href="">編集データの削除</a>CRUDにするよう-->
 
 {!! Form::open(['action' => 'EditController@update','id' => 'editForm']) !!}
     {{ csrf_field() }}
