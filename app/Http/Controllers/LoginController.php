@@ -201,11 +201,12 @@ class LoginController extends Controller
             return redirect('/');
         }
 
+          // 個別編集ログイン時にメール送信。
           //振り分けようのメールアドレスをつくる
           // $noReportMail = 
         if(DB::table('safe_info')->where('work_id',$id)->value('safety')  == '報告なし'){
             Mail::send('email.safe', ['name' => (DB::table('worker_list')->where('work_id', $id)->value('name'))], function($message) {
-                $message->to('handa.sonoichi@gmail.com')->subject('安否報告なしのための確認連絡'); //確認用メール
+                $message->to('')->subject('安否報告なしのための確認連絡'); //確認用メール
             });
         }
 
