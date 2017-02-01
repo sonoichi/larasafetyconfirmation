@@ -43,6 +43,12 @@ class LoginController extends Controller
     // index -> employee/login
     public function employee()
     {
+    // Mail::raw('本文', function($message)
+    // {
+    //     $message->from('fromアドレス', '差出人不明');
+
+    //     $message->to('toアドレス');
+    // });
         //Session::flush();
         return view('employee.login');
     }

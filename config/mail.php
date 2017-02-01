@@ -115,4 +115,9 @@ return [
 
     // Mail "Pretend"
     'pretend' => env('MAIL_PRETEND', false),
+
+    'mailgun' => [
+        'domain' => 'your-mailgun-domain',
+        'secret' => 'your-mailgun-key',
+    ],
 ];
