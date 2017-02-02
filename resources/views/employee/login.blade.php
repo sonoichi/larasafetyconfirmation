@@ -42,7 +42,7 @@
         
         @if(!($errors->has('work_id') or $errors->has('password')))
             <div class="container">
-              <p>入力項目はすべて必須となります</p>
+              <p class="text-danger">入力項目はすべて必須となります</p>
             </div>
         @endif
         <div class="form-group{{ $errors->has('work_id') ? ' has-error' : '' }}">
