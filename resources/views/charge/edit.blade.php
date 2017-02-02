@@ -13,13 +13,15 @@
   <p>編集中の社員の安否情報</p>
 <div>
     <table class="table">
-    <tr>
-    <td>社員ID</td>
-    <td>氏名</td>
-    <td>状態</td>
-    <td>コメント</td>
-    <td>投稿時間</td>
-    </tr>
+    <thead>
+        <tr>
+        <td>社員ID</td>
+        <td>氏名</td>
+        <td>状態</td>
+        <td>コメント</td>
+        <td>投稿時間</td>
+        </tr>
+    </thead>
     @foreach($editUser as $worker_list)
         <tr>
             <td>{{$worker_list->work_id}}</td>
@@ -60,7 +62,7 @@
 
         <div class="col-md-12">
             <input id="comment" type="comment" class="form-control" name="comment" value="{{ Session::get('editComment') }}" readonly="readonly">
-            <p class="text-danger">* 編集中の社員のコメントが直接編集されます。現在は読取専用となっています。</p>
+            <p style="text-align:right;" class="text-danger">* 編集中の社員のコメントが直接編集されます。現在は読取専用となっています。</p>
         </div>
     </div>
 

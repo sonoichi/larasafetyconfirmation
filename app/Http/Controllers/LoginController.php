@@ -257,7 +257,7 @@ class LoginController extends Controller
         return '保存しました';            
     }
 
-
+    // logout -> / 
     public function sessionkill(){
         if(!Session::has('work_id')){
             Session::flush();
@@ -272,6 +272,36 @@ class LoginController extends Controller
         return redirect('/');
         //return redirect()->route('../index');
     }
+
+    // CSV吐出
+    public function csv()
+        {
+            $keyword = \Input::get('keyword');
+            $query = User::query();
+
+            if(!empty($keyword))
+            {
+                $query->where('email','like','%'.$keyword.'%');
+            }
+
+            $users = $query->get();
+            $stream = fopen('php://temp','w');
+
+            foreach($users as $user)
+            {   
+                fputcsv($stream,[$user->id,$user->name]);
+            }
+
+            rewind($stream);
+            $csv = mb_convert_encoding(str_replace(PHP_EOL, "\r\n", stream_get_contents($stream)), 'SJIS', 'UTF-8');
+            $filename = "users_".date('Ymd').".csv";
+            $headers = array(
+                'Content-Type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename="' . $filename . '"'
+            );
+            return \Response::make($csv, 200, $headers);
+        }
+
 
 
 
