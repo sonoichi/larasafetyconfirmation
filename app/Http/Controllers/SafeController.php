@@ -49,13 +49,13 @@ class SafeController extends Controller
             // [Request::input('safety') ,Request::input('comment') , '',Session::get('work_id')]);
 
             DB::table('safe_info')->insert(
-                ['safety' => Request::input('safety'), 'comment' => Request::input('comment'), 'manager_comment' => '','work_id' => Session::get('work_id')]
+                ['safety' => Request::input('safety'), 'comment' => Request::input('comment'), 'manager_comment' => '','work_id' => Session::get('work_id'), 'date'=>Session::get('date')]
             );
         }else{
             // UPDATE
             DB::table('safe_info')
                ->where('work_id',Session::get('work_id'))
-               ->update(['safety' => Request::input('safety'), 'comment' => Request::input('comment')]);
+               ->update(['safety' => Request::input('safety'), 'comment' => Request::input('comment'),'date'=>Session::get('date')]);
         }
         $work_id = Session::get('work_id');
         return view('employee.post',compact('work_id'));

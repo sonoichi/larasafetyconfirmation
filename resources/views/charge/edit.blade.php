@@ -11,7 +11,7 @@
   {{-- Session::get('editWorker') --}}
   
   <p>編集中の社員の安否情報</p>
-<div>
+<div class="underline">
     <table class="table">
     <thead>
         <tr>
@@ -33,8 +33,6 @@
     @endforeach
     </table>
 </div>
-
-  <hr>
 
 <h2 class="bleft">編集フォーム</h2>
 <!--<a class="btn btn-danger col-xs-offset-10 col-xs-2" href="">編集データの削除</a>CRUDにするよう-->
