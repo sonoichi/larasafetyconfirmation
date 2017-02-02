@@ -71,7 +71,7 @@
     </li>
   </ul>
   <!--タブの中身-->
-  <div class="tab-content">
+  <div class="tab-content" style="margin-bottom:2.4em;">
     <div id="tab1" class="tab-pane">
       <!--Tab1の内容-->
   <table class="table table-hover-rows" style="margin:0 12px;">
