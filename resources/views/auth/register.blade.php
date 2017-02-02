@@ -14,7 +14,7 @@
                     <form id="registForm" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
                     <h2>ユーザーの新規登録</h2>
-                    <p>新規のユーザ登録をする際はこちらをご利用ください。<br/>
+                    <p>新規のユーザ登録をする際はこちらをご利用ください。
                     すべての入力が必須項目となりますのでご注意ください</p>
                     @if ($errors->has('work_id') 
                     or $errors->has('name')
@@ -57,6 +57,7 @@
                             <div class="col-md-6">
                                 <!--<input id="department" type="text" class="form-control" name="department" value="{{ old('department') }}" autofocus>-->
                                 <select class="form-control" name="department">
+                                    <option value="" checked>所属を選んでください</option>
                                     <option value="営業">営業</option>{{-- そのうちループさせる --}}
                                     <option value="営業第二">営業第二</option>
                                     <option value="営業第三">営業第三</option>
@@ -73,7 +74,7 @@
                         
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">名前</label>
+                            <label for="name" class="col-md-4 control-label" placeholder="例：田中太郎">名前</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus>

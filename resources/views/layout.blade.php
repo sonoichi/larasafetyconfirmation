@@ -63,6 +63,21 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+
+            .bleft{
+                border-left: solid 4px #636b6f;
+                padding-left: 14px;
+            }
+
+            .underline{
+                border-bottom: solid 1px #636b6f;
+            }
+
+            .nav-tabs>li>a{
+                border: 1px solid #636b6f;
+            } 
+
         </style>
         @yield('css')
     </head>

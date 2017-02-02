@@ -6,12 +6,17 @@
 
 @section('content')
 <div class="container panel panel-default" style="margin:2em auto 0 auto;">
-  <h2>安否確認：入力</h2>
-
-  <p style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
-    <div class="col-md-12" style="margin:1.2em; text-align:right;">
-        <a class="btn btn-default" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
+    <section class="underline">
+    <div class="container">
+      <div class="row">
+        <h2 class="col-xs-10 bleft">安否確認入力画面</h2>
+        <a class="col-xs-2 btn btn-danger" style="margin-top:1.2em" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
+      </div>
     </div>
+      <p  class="" style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
+    </section>
+
+
 
    {!! Form::open(['action' => 'SafeController@store', 'id' => 'confirmForm']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
@@ -27,16 +32,16 @@
         <input type="hidden" name="work_id" value="{{Session::get('work_id')}}">
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
             <div class="col-md-12">
-            <h3>安否確認</h3>
-            <p>調子はどうですか？</p>
+            <h3 class="bleft">状況確認</h3>
+            <p><b>▼ 体調の確認：「調子はどうですか？」   <span class="text-danger"> ※必須</span></b></p>
                 <input id="noReport" type="hidden" name="safety" value="報告なし">
-                <input id="good" type="radio" name="safety" value="問題ない" checked>もんだいなし <i class="icon-like"></i>　　　
-                <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり <i class="icon-dislike"></i>
+                <input id="good" type="radio" name="safety" value="問題ない" checked>問題なし  <i class="icon-like"></i>　　　
+                <input id="bad" type="radio" name="safety" value="問題あり">問題あり  <i class="icon-dislike"></i>
             </div>
         </div>
 
         <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-            <label for="comment" class="col-md-12 control-label"><br/>コメントを残す</label>
+            <label for="comment" class="col-md-12 control-label"><br/>▼ コメントを残す (30文字以内)</label>
 
             <div class="col-md-12">
                 <input id="comment" type="comment" class="form-control" name="comment">
@@ -45,6 +50,7 @@
 
         <div class="form-group">
             <div style="text-align:right;" class="col-md-2 col-md-offset-10">
+            <input id="date" type="hidden" class="form-control" name="date">
                 <button id="opener" type="button" class="confirmCheck btn btn-primary">
                     送信
                 </button>

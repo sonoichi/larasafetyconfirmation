@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-  <h2>安否確認：編集画面</h2>
+  <h2 class="bleft">安否確認編集画面</h2>
   <!-- 確認用 --> 
   {{-- Session::get('editWorker') --}}
   
@@ -34,7 +34,7 @@
 
   <hr>
 
-<h2>編集フォーム</h2>
+<h2 class="bleft">編集フォーム</h2>
 <!--<a class="btn btn-danger col-xs-offset-10 col-xs-2" href="">編集データの削除</a>CRUDにするよう-->
 
 {!! Form::open(['action' => 'EditController@update','id' => 'editForm']) !!}
@@ -43,20 +43,20 @@
     @foreach($editUser as $worker_list)
         <input id="work_id" type="hidden" name="work_id" value="{{ $worker_list->work_id }}">
     @endforeach
-    <h3>状態</h3>
+    <h3> <b>状況確認</b></h3>
     <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
         <div class="col-md-12">
             <input id="noReport" type="radio" name="safety" value="報告なし">報告なし <i class="icon-user-unfollow"></i>　　　　
-            <input id="good" type="radio" name="safety" value="問題ない">もんだいなし <i class="icon-like"></i>　　　　
-            <input id="bad" type="radio" name="safety" value="問題あり">もんだいあり <i class="icon-dislike"></i>
+            <input id="good" type="radio" name="safety" value="問題ない">問題ない <i class="icon-like"></i>　　　　
+            <input id="bad" type="radio" name="safety" value="問題あり">問題あり <i class="icon-dislike"></i>
             <!--<p class="alert-info">* ボタンが選択されない場合は報告なしになります。</p>-->
             <p></p>
         </div>
     </div>
 
-    <h3>コメント</h3>
+    <h3> <b>コメント</b></h3>
     <div class="form-group{{ $errors->has('comment') ? ' has-error' : '' }}">
-        <label for="comment" class="col-md-2 control-label">コメント</label>
+        <label for="comment" class="col-md-2 control-label">▼ コメントを残す</label>
 
         <div class="col-md-12">
             <input id="comment" type="comment" class="form-control" name="comment" value="{{ Session::get('editComment') }}" readonly="readonly">
@@ -64,9 +64,9 @@
         </div>
     </div>
 
-    <h3>管理者からのコメント</h3>
+    <h3> <b>管理者からのコメント</b></h3>
     <div class="form-group{{ $errors->has('manager_comment') ? ' has-error' : '' }}">
-        <label for="manager_comment" class="col-md-2 control-label">コメント</label>
+        <label for="manager_comment" class="col-md-2 control-label">▼ 管理者コメントを残す</label>
 
         <div class="col-md-12">
             <input id="manager_comment" type="manager_comment" class="form-control" name="manager_comment" value="{{Session::get('editManager_comment')}}">
