@@ -1,5 +1,15 @@
 @extends('layout')
 
+@section('css')
+  <style>
+  /* 管理者項目 */
+    .manager{
+      background: #636b6f;
+      color:#fff;
+    }
+  </style>
+@endsection
+
 @section('content')
 <!-- リストを表示する
   // ルーチンの内容 
@@ -63,9 +73,9 @@
       <td>連絡先</td>
       <td>メールアドレス</td>
       <td>住所</td>
-      <td>所属部署</td>
-      <td>責任者名</td>
-      <td>責任者連絡先</td>
+      <td class="manager">所属部署</td>
+      <td class="manager" >責任者名</td>
+      <td class="manager" >責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
@@ -76,9 +86,9 @@
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
-      <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager_name}}</td>
-      <td>{{$worker_list->manager_tell}}</td>
+      <td class="manager">{{$worker_list->department}}</td>
+      <td class="manager">{{$worker_list->manager_name}}</td>
+      <td class="manager">{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
@@ -95,9 +105,9 @@
       <td>連絡先</td>
       <td>住所</td>
       <td>メールアドレス</td>
-      <td>所属部署</td>
-      <td>責任者名</td>
-      <td>責任者連絡先</td>
+      <td class="manager">所属部署</td>
+      <td class="manager">責任者名</td>
+      <td class="manager">責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
@@ -110,9 +120,9 @@
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
-      <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager_name}}</td>
-      <td>{{$worker_list->manager_tell}}</td>
+      <td class="manager">{{$worker_list->department}}</td>
+      <td class="manager">{{$worker_list->manager_name}}</td>
+      <td class="manager">{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
@@ -130,9 +140,9 @@
       <td>連絡先</td>
       <td>住所</td>
       <td>メールアドレス</td>
-      <td>所属部署</td>
-      <td>責任者名</td>
-      <td>責任者連絡先</td>
+      <td class="manager">所属部署</td>
+      <td class="manager">責任者名</td>
+      <td class="manager">責任者連絡先</td>
       <td>安否情報</td>
       <td></td>     
     </tr>
@@ -145,9 +155,9 @@
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
-      <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager_name}}</td>
-      <td>{{$worker_list->manager_tell}}</td>
+      <td class="manager">{{$worker_list->department}}</td>
+      <td class="manager">{{$worker_list->manager_name}}</td>
+      <td class="manager">{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
@@ -165,9 +175,9 @@
       <td>連絡先</td>
       <td>住所</td>
       <td>メールアドレス</td>
-      <td>所属部署</td>
-      <td>責任者名</td>
-      <td>責任者連絡先</td>
+      <td class="manager">所属部署</td>
+      <td class="manager">責任者名</td>
+      <td class="manager">責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
@@ -180,9 +190,9 @@
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
-      <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager_name}}</td>
-      <td>{{$worker_list->manager_tell}}</td>
+      <td class="manager">{{$worker_list->department}}</td>
+      <td class="manager">{{$worker_list->manager_name}}</td>
+      <td class="manager">{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
@@ -200,9 +210,9 @@
       <td>連絡先</td>
       <td>住所</td>
       <td>メールアドレス</td>
-      <td>所属部署</td>
-      <td>責任者名</td>
-      <td>責任者連絡先</td>
+      <td class="manager">所属部署</td>
+      <td class="manager">責任者名</td>
+      <td class="manager">責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
@@ -215,9 +225,9 @@
       <td>{{$worker_list->tell}}</td>
       <td>{{$worker_list->email}}</td>
       <td>{{$worker_list->zip}}</td>
-      <td>{{$worker_list->department}}</td>
-      <td>{{$worker_list->manager_name}}</td>
-      <td>{{$worker_list->manager_tell}}</td>
+      <td class="manager">{{$worker_list->department}}</td>
+      <td class="manager">{{$worker_list->manager_name}}</td>
+      <td class="manager">{{$worker_list->manager_tell}}</td>
       <td>{{$worker_list->safety}}</td>
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
