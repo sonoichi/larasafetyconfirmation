@@ -11,6 +11,10 @@
 </style>
 @endsection
 
+@section('header')
+
+@endsection
+
 @section('content')
 <div class="container" style="text-align:center;">
   <div class="jumbotron" style="margin-top:2em">
