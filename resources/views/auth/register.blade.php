@@ -134,7 +134,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="col-md-offset-9 col-md-1"></p><a class="btn btn-default" href="../">戻る</a><p></div>
+                    <div class="col-md-offset-9 col-md-1 col-sm-offset-10 col-sm-2 col-xs-offset-8 col-xs-2"></p><a class="btn btn-default" href="../">戻る</a><p></div>
                 </div>
             </div>
         </div>
