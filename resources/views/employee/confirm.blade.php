@@ -10,7 +10,7 @@
     <div class="container">
       <div class="row">
         <h2 class="col-xs-10 bleft">安否確認入力画面</h2>
-        <a class="col-xs-2 btn btn-danger" style="margin-top:1.2em" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
+        <a class="col-xs-2 btn btn-danger" style="margin-top:1.6em" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
       </div>
     </div>
       <p  class="" style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>

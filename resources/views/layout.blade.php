@@ -74,9 +74,15 @@
                 border-bottom: solid 1px #636b6f;
             }
 
+            /*BS3改変*/
             .nav-tabs>li>a{
+                color: #636b6f;
                 border: 1px solid #636b6f;
             } 
+            .navbar-default{
+                background-color: #000000;
+            }
+
 
         </style>
         @yield('css')

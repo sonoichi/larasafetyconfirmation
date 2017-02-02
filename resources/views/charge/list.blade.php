@@ -8,12 +8,17 @@
 
 -->
 <div class="container">
-  <h2>安否確認リスト</h2>
-  <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
-  <p style="text-align:right;"><a class="btn btn-default" href="{{ action('LoginController@sessionkill') }}">ログアウト</a></p>
-  <p style="text-align:right;">ようこそ。ID：{{Session::get('work_id')}} 責任者：{{DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name') }}さん</p></br>
-  
-  <hr>
+<section class="underline">
+  <div class="container">
+    <div class="row">
+    <h2 class="col-xs-10 bleft">安否確認リスト</h2>
+    <a class="col-xs-2 btn btn-danger"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
+    </div>
+    <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
+  </div>
+  <p style="text-align:right;">ようこそ、ID： {{Session::get('work_id')}} 責任者： {{DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name') }}さん</p></br>
+</section>
+<br/>
 <!-- 確認用
 <table class="table" style="margin:0 12px;">
   <tr>
@@ -29,11 +34,11 @@
 </tr>
 </table>
 -->
-<p>タブメニューより
+<p style="text-align:right">タブメニューより
 閲覧したい部門を選んでください。</p>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a href="#tab1" class="nav-link navbar-default active" data-toggle="tab">営業</a>
+      <a href="#tab1" class="nav-link navbar-default" data-toggle="tab" >営業</a>
     </li>
     <li class="nav-item">
       <a href="#tab2" class="nav-link navbar-default" data-toggle="tab">営業第二</a>
@@ -50,7 +55,7 @@
   </ul>
   <!--タブの中身-->
   <div class="tab-content">
-    <div id="tab1" class="tab-pane active">
+    <div id="tab1" class="tab-pane">
       <!--Tab1の内容-->
   <table class="table table-hover-rows" style="margin:0 12px;">
     <tr>
