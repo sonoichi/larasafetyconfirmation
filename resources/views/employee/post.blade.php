@@ -1,5 +1,15 @@
 @extends('layout')
 
+@section('css')
+<style>
+  thead{
+    background: #636b6f;
+    color: #FFF;
+  }
+</style>
+@endsection
+
+
 @section('content')
 <div class="container panel panel-default" style="text-align:center; margin-right: auto; margin-left:auto;">
   <div class="" style="margin-top:2em;">
@@ -26,8 +36,9 @@
     </tbody>
     <table>
     {{-- 管理者コメント --}}
-    @if(DB::table('safe_info')->where('work_id',$work_id)->count('manager_comment') > 0)
+    @if(DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment'));
     <h4 style="text-align:left;" class="bleft">管理者からコメントがきています</h4>
+    {{-- DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment') --}}
     <p style="text-align:left;">{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_comment')  }}</p>
     @endif
     <a style="margin-bottom:1.4em;" class="btn btn-default" href="{{ url('/') }}">トップへ戻る</a>
