@@ -55,6 +55,7 @@
 </tr>
 </table>
 -->
+<h3 class="bleft">安否情報一覧</h3>
 <p style="text-align:right">タブメニューより
 閲覧したい部門を選んでください。</p>
   <ul class="nav nav-tabs">
