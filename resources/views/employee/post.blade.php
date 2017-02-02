@@ -36,7 +36,7 @@
     </tbody>
     <table>
     {{-- 管理者コメント --}}
-    @if(DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment'));
+    @if(DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment'))
     <h4 style="text-align:left;" class="bleft">管理者からコメントがきています</h4>
     {{-- DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment') --}}
     <p style="text-align:left;">{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_comment')  }}</p>
