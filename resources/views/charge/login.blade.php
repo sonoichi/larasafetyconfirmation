@@ -3,7 +3,7 @@
 @section('content')
 <div class="container panel panel-default" style="margin-top:2em">
   <div style="text-align:center;">
-    <h1>ログイン</h1>
+    <h1><span class="underline">ログイン</span></h1>
     <p>こちらは管理者向けログイン画面となります。</p>
     <p></p>
   </div>

@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('css')
+<style>
+
+</style>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 @endsection
 
@@ -10,7 +13,8 @@
     <div class="container">
       <div class="row">
         <h2 class="col-xs-10 bleft">安否確認入力画面</h2>
-        <a class="col-xs-2 btn btn-danger" style="margin-top:1.6em" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
+        <a class="hidden-xs btn btn-danger" style="margin-top:1.6em;" href="{{action('LoginController@sessionkill')}}">ログアウト</a>
+        <a class="visible-xs col-xs-1 btn btn-danger" style="margin-top:1.6em;" href="{{action('LoginController@sessionkill')}}"><i class="icon-logout">  </i></a>
       </div>
     </div>
       <p  class="" style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
@@ -49,11 +53,14 @@
         </div>
 
         <div class="form-group">
-            <div style="text-align:right;" class="col-md-2 col-md-offset-10">
             <input id="date" type="hidden" class="form-control" name="date">
-                <button id="opener" type="button" class="confirmCheck btn btn-primary">
+                <div class="">
+                  <div style="" class="">
+                  <button style="margin:40px;" id="opener" type="button" class="confirmCheck btn btn-primary">
                     送信
-                </button>
+                  </button>
+                  </div>
+                </div>
                 <!-- 確認ダイアログ -->
                     <div id="dialog">
                     <p>送信しても宜しいでしょうか？</p>
@@ -61,7 +68,7 @@
                 <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
                 確認
                 </a>-->
-            </div>
+            
         </div>
     {!! Form::close() !!}
 

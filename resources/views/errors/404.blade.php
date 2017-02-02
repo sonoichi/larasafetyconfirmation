@@ -32,15 +32,20 @@
             }
 
             .title {
-                font-size: 72px;
+                font-size: 48px;
                 margin-bottom: 40px;
-            }
+                box-shadow: 0px 10px 10px;
+            }      
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">あなたのお探しのページは<br/>見つかりませんでした</div>
+                <div class="title">
+                  <div class="">
+                    あなたのお探しのページは<br/>見つかりませんでした
+                  </div>
+                </div>
             </div>
         </div>
     </body>

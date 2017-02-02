@@ -82,8 +82,10 @@
             .navbar-default{
                 background-color: #000000;
             }
-
-
+            .panel{
+                margin-top:3.4em;
+                box-shadow: 0px 10px 10px;
+            }
         </style>
         @yield('css')
     </head>
@@ -110,42 +112,6 @@
         history.pushState(null, null, null);
     });
 </script>
-<!-- 他で流用するかもしれない。まとめられる内容になったら以下をまとめる -->
-<!--
-    .confirm  に対する送信確認
--->
-<script>
-$(function(){
-    $(".confirmCheck").click(function(){
-        // カスタムメッセージ版 
 
-
-        //確認用簡易版: カスタム版作成したので不要
-        // if(confirm("送信してもよろしいでしょうか？")){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
-    });
-});
-</script>
-
-<!--
-    .edit　に対する編集確認
--->
-<script>
-$(function(){
-    $(".edit").click(function(){
-        // カスタムメッセージ版    
-
-        // 確認用簡易版: カスタム版作成したので不要
-        // if(confirm("登録してもよろしいでしょうか？")){
-        //     return true;
-        // }else{
-        //     return false;
-        // }
-    });
-});
-</script>
     </body>
 </html>

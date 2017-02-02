@@ -17,16 +17,23 @@
   // 
 
 -->
-<div class="container">
+<div class="container panel panel-default">
 <section class="underline">
   <div class="container">
     <div class="row">
-    <h2 class="col-xs-10 bleft">安否確認リスト</h2>
-    <a class="col-xs-2 btn btn-danger"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
+    <div class="col-xs-10">
+      <h2 class="bleft">安否確認リスト</h2>
+      <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
     </div>
-    <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
+      <div class="col-xs-2">
+        <a class="btn btn-danger"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
+      </div>
+    </div>
+    
+    
   </div>
-  <p style="text-align:right;">ようこそ、ID： {{Session::get('work_id')}} 責任者： {{DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name') }}さん</p></br>
+  
+  <p style="text-align:right;">ようこそ、社員ID： {{Session::get('work_id')}} 、責任者： {{DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name') }}さん</p></br>
 </section>
 <br/>
 <!-- 確認用
@@ -238,9 +245,5 @@
 
     </div>
   </div>
-
-
-
-
 </div>
 @endsection

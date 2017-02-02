@@ -1,5 +1,16 @@
 @extends('layout')
 
+@section('css')
+<style>
+  .jumbotron{
+    box-shadow: 0px 10px 10px;
+  }
+  .btn{
+    box-shadow: 0px 6px 5px;
+  }
+</style>
+@endsection
+
 @section('content')
 <div class="container" style="text-align:center;">
   <div class="jumbotron" style="margin-top:2em">

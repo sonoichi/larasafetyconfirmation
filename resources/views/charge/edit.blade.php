@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="panel panel-default container">
   <h2 class="bleft">安否確認編集画面</h2>
   <!-- 確認用 --> 
   {{-- Session::get('editWorker') --}}
@@ -74,7 +74,7 @@
         </div>
     </div>
 
-    <div style="text-align:right" class="form-group">
+    <div style="text-align:left" class="form-group">
         <div class="col-md-12">
             <button id="opener" type="button" class="edit btn btn-primary">
                 編集
@@ -86,7 +86,7 @@
         </div>
     </div>
 {!! Form::close() !!}
-<div class="col-md-12">
+<div style="text-align:right; margin:1.6em;" class="">
     <a class="btn btn-default" href="{{ action('LoginController@getList') }}">戻る</a>
 </div>
 

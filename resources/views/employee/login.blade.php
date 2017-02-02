@@ -1,12 +1,22 @@
 @extends('layout')
 
+@section('css')
+<style>
+  .panel{
+      margin-top:3.4em;
+      box-shadow: 0px 10px 10px;
+  }
+</style>
+@endsection
+
 @section('content')
 <div class="container panel panel-default" style="margin-top:2em">
-  <div class="" style="text-align:center">
-    <h1>ログイン</h1>
+  <div class="">
+    <h1 style="text-align:center"><span class="underline">ログイン</span></h1>
     <p>こちらは一般向けログイン画面となります。</p>
     <p>安否データのリストが必要な場合は管理者用ページよりログインください。</p>
   </div>
+  <br>
     <form class="form-horizontal" role="form" method="POST" action="/employee/confirm">
         {{ csrf_field() }}
         
