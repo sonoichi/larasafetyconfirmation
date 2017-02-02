@@ -85,7 +85,7 @@
 -->
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" style="box-shadow: 0px 2px 5px;" class="btn btn-primary">
                     ログイン
                 </button>
 
