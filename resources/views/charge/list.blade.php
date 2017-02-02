@@ -11,6 +11,9 @@
       background: #636b6f;
       color:#fff
     }
+    .nav-tabs{
+      border-bottom:1px solid #000;
+    }
   </style>
 @endsection
 
@@ -30,7 +33,8 @@
       <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
     </div>
       <div class="col-xs-2">
-        <a class="btn btn-danger"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
+        <a class="btn btn-danger hidden-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
+        <a class="btn btn-danger visible-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}"><i class="icon-logout"></i></a>
       </div>
     </div>
     
@@ -79,6 +83,7 @@
   <div class="tab-content" style="margin-bottom:2.4em;">
     <div id="tab1" class="tab-pane">
       <!--Tab1の内容-->
+  <div class="table-responsive">
   <table class="table table-striped" style="margin:0 12px;">
   <thead class="theadList">
     <tr>
@@ -109,10 +114,12 @@
 @endif
 @endforeach
   </table>
+  </div>
     </div>
 
     <div id="tab2" class="tab-pane">
      <!--Tab２の内容-->
+  <div class="table-responsive">
   <table class="table" style="margin:0 12px;">
   <thead class="theadList">
     <tr>
@@ -146,10 +153,12 @@
 @endforeach
 
   </table>
+  </div>
 
     </div>
     <div id="tab3" class="tab-pane">
      <!--Tab３の内容-->
+  <div class="table-responsive">
   <table class="table" style="margin:0 12px;">
   <thead class="theadList">
     <tr>
@@ -183,10 +192,12 @@
 @endforeach
 
   </table>
+  </div>
 
     </div>
     <div id="tab4" class="tab-pane">
      <!--Tab４の内容-->
+  <div class="table-responsive">
   <table class="table" style="margin:0 12px;">
   <thead class="theadList">
     <tr>
@@ -220,10 +231,12 @@
 @endforeach
 
   </table>
+  </div>
 
     </div>
     <div id="tab5" class="tab-pane">
      <!--Tab４の内容-->
+  <div class="table-responsive">
   <table class="table" style="margin:0 12px;">
   <thead class="theadList">
     <tr>
@@ -257,6 +270,7 @@
 @endforeach
 
   </table>
+  </div>
 
     </div>
   </div>
