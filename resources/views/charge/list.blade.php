@@ -7,6 +7,10 @@
       background: #636b6f;
       color:#fff;
     }
+    .theadList{
+      background: #636b6f;
+      color:#fff
+    }
   </style>
 @endsection
 
@@ -74,7 +78,8 @@
   <div class="tab-content" style="margin-bottom:2.4em;">
     <div id="tab1" class="tab-pane">
       <!--Tab1の内容-->
-  <table class="table table-hover-rows" style="margin:0 12px;">
+  <table class="table table-striped" style="margin:0 12px;">
+  <thead class="theadList">
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
@@ -86,6 +91,7 @@
       <td>安否情報</td>
       <td></td>
     </tr>
+  </thead>
 @foreach($users as $worker_list)
 @if(($worker_list->department)=='営業') 
 <tr>
@@ -107,17 +113,19 @@
     <div id="tab2" class="tab-pane">
      <!--Tab２の内容-->
   <table class="table" style="margin:0 12px;">
+  <thead class="theadList">
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
-      <td>住所</td>
       <td>メールアドレス</td>
+      <td>住所</td>
       <td class="manager">所属部署</td>
-      <td class="manager">責任者名</td>
-      <td class="manager">責任者連絡先</td>
+      <td class="manager" >責任者名</td>
+      <td class="manager" >責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
+  </thead>
 
 
 @foreach($users as $worker_list)
@@ -142,17 +150,19 @@
     <div id="tab3" class="tab-pane">
      <!--Tab３の内容-->
   <table class="table" style="margin:0 12px;">
+  <thead class="theadList">
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
-      <td>住所</td>
       <td>メールアドレス</td>
+      <td>住所</td>
       <td class="manager">所属部署</td>
-      <td class="manager">責任者名</td>
-      <td class="manager">責任者連絡先</td>
+      <td class="manager" >責任者名</td>
+      <td class="manager" >責任者連絡先</td>
       <td>安否情報</td>
-      <td></td>     
+      <td></td>
     </tr>
+  </thead>
 
 
 @foreach($users as $worker_list)
@@ -177,17 +187,19 @@
     <div id="tab4" class="tab-pane">
      <!--Tab４の内容-->
   <table class="table" style="margin:0 12px;">
+  <thead class="theadList">
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
-      <td>住所</td>
       <td>メールアドレス</td>
+      <td>住所</td>
       <td class="manager">所属部署</td>
-      <td class="manager">責任者名</td>
-      <td class="manager">責任者連絡先</td>
+      <td class="manager" >責任者名</td>
+      <td class="manager" >責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
+  </thead>
 
 
 @foreach($users as $worker_list)
@@ -212,17 +224,19 @@
     <div id="tab5" class="tab-pane">
      <!--Tab４の内容-->
   <table class="table" style="margin:0 12px;">
+  <thead class="theadList">
     <tr>
       <td>社員氏名</td>
       <td>連絡先</td>
-      <td>住所</td>
       <td>メールアドレス</td>
+      <td>住所</td>
       <td class="manager">所属部署</td>
-      <td class="manager">責任者名</td>
-      <td class="manager">責任者連絡先</td>
+      <td class="manager" >責任者名</td>
+      <td class="manager" >責任者連絡先</td>
       <td>安否情報</td>
       <td></td>
     </tr>
+  </thead>
 
 
 @foreach($users as $worker_list)
