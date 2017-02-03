@@ -66,23 +66,23 @@
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a href="#tab1" class="nav-link navbar-default hidden-xs" data-toggle="tab" >営業</a>
-      <a title="営業" href="#tab1" class="nav-link navbar-default visible-xs" data-toggle="tab" >①</a>
+      <a title="営業" href="#tab1" class="nav-link navbar-default visible-xs" data-toggle="tab" >営</a>
     </li>
     <li class="nav-item">
       <a href="#tab2" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第二</a>
-      <a title="営業第二" href="#tab2" class="nav-link navbar-default visible-xs" data-toggle="tab" >②</a>
+      <a title="営業第二" href="#tab2" class="nav-link navbar-default visible-xs" data-toggle="tab" >二</a>
     </li>
     <li class="nav-item">
       <a href="#tab3" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第三</a>
-      <a title="営業第三" href="#tab3" class="nav-link navbar-default visible-xs" data-toggle="tab" >③</a>
+      <a title="営業第三" href="#tab3" class="nav-link navbar-default visible-xs" data-toggle="tab" >三</a>
     </li>
     <li class="nav-item">
       <a href="#tab4" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第四</a>
-      <a title="営業第四" href="#tab4" class="nav-link navbar-default visible-xs" data-toggle="tab" >④</a>
+      <a title="営業第四" href="#tab4" class="nav-link navbar-default visible-xs" data-toggle="tab" >四</a>
     </li>
     <li class="nav-item">
       <a href="#tab5" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第五</a>
-      <a title="営業第五" href="#tab5" class="nav-link navbar-default visible-xs" data-toggle="tab" >⑤</a>
+      <a title="営業第五" href="#tab5" class="nav-link navbar-default visible-xs" data-toggle="tab" >五</a>
     </li>
   </ul>
   <!--タブの中身-->
