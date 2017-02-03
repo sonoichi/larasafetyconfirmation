@@ -37,9 +37,7 @@
         <a class="btn btn-danger hidden-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
         <a class="btn btn-danger visible-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}"><i class="icon-logout"　style="display: inline-block;"></i></a>
       </div>
-    </div>
-    
-    
+    </div>    
   </div>
   
   <p style="text-align:right;">ようこそ、社員ID： {{Session::get('work_id')}} 、責任者： {{DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name') }}さん</p></br>
