@@ -170,5 +170,6 @@ $( "#opener" ).click(function() {
       }
     });
 });
+ 
 </script>	
 @endsection
