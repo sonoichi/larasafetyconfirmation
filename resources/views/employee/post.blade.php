@@ -39,7 +39,8 @@
     @if(DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment'))
       <h4 style="text-align:left;" class="bleft">管理者からコメントがきています</h4>
     {{-- DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment') --}}
-      <p style="text-align:left; margin-left:1.6em;">[管理者投稿時間]：{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_to') }}　　[コメント]：{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_comment')  }}</p>
+      <p style="text-align:left; margin-left:1.6em;">[管理者投稿時間]：{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_to') }}
+      <br/>　　　　　　[コメント]：{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_comment')  }}</p>
     @endif
     <a style="margin-bottom:1.4em;" class="btn btn-default" href="{{ url('/') }}">トップへ戻る</a>
   </div>
