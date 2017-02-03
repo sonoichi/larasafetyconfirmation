@@ -13,8 +13,8 @@
                 <div class="panel-body">
                     <form id="registForm" class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
-                    <h2 style="text-align:center;"><span class="underline">ユーザーの新規登録</span></h2>
-                    <p>新規のユーザ登録をする際はこちらをご利用ください。</p>
+                    <h2 style="text-align:center;"><span class="underline">ユーザー<span class="hidden-xs">の</span>新規登録</span></h2>
+                    <p>新規のユーザー登録をする際はこちらをご利用ください。</p>
                     @if ($errors->has('work_id') 
                     or $errors->has('name')
                     or $errors->has('email')
