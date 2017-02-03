@@ -30,11 +30,12 @@
     <div class="row">
     <div class="col-xs-10">
       <h2 class="bleft">安否確認リスト</h2>
-      <p class="text-warning">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
+      <p class="text-warning hidden-xs">* 安否情報で報告なし/問題ありの人のみリストにあがります。</p>
+      <p class="text-warning visible-xs">* 報告なし/問題ありの人のみリストにあがります。</p>
     </div>
       <div class="col-xs-2">
         <a class="btn btn-danger hidden-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}">ログアウト</a>
-        <a class="btn btn-danger visible-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}"><i class="icon-logout"></i></a>
+        <a class="btn btn-danger visible-xs"  style="margin-top:1.6em;" href="{{ action('LoginController@sessionkill') }}"><i class="icon-logout"　style="display: inline-block;"></i></a>
       </div>
     </div>
     
@@ -64,19 +65,24 @@
 閲覧したい部門を選んでください。</p>
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a href="#tab1" class="nav-link navbar-default" data-toggle="tab" >営業</a>
+      <a href="#tab1" class="nav-link navbar-default hidden-xs" data-toggle="tab" >営業</a>
+      <a title="営業" href="#tab1" class="nav-link navbar-default visible-xs" data-toggle="tab" >①</a>
     </li>
     <li class="nav-item">
-      <a href="#tab2" class="nav-link navbar-default" data-toggle="tab">営業第二</a>
+      <a href="#tab2" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第二</a>
+      <a title="営業第二" href="#tab2" class="nav-link navbar-default visible-xs" data-toggle="tab" >②</a>
     </li>
     <li class="nav-item">
-      <a href="#tab3" class="nav-link navbar-default" data-toggle="tab">営業第三</a>
+      <a href="#tab3" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第三</a>
+      <a title="営業第三" href="#tab3" class="nav-link navbar-default visible-xs" data-toggle="tab" >③</a>
     </li>
     <li class="nav-item">
-      <a href="#tab4" class="nav-link navbar-default" data-toggle="tab">営業第四</a>
+      <a href="#tab4" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第四</a>
+      <a title="営業第四" href="#tab4" class="nav-link navbar-default visible-xs" data-toggle="tab" >④</a>
     </li>
     <li class="nav-item">
-      <a href="#tab5" class="nav-link navbar-default" data-toggle="tab">営業第五</a>
+      <a href="#tab5" class="nav-link navbar-default hidden-xs" data-toggle="tab">営業第五</a>
+      <a title="営業第五" href="#tab5" class="nav-link navbar-default visible-xs" data-toggle="tab" >⑤</a>
     </li>
   </ul>
   <!--タブの中身-->
