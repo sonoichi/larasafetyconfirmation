@@ -15,7 +15,7 @@
   <div class="" style="margin-top:2em;">
   <h2 class="bleft underline">投稿内容の確認</h2>
   <h4 class="bleft">{{ DB::table('worker_list')->where('work_id',$work_id)->value('name') }}さんの投稿</h4>
-    <p class="text-danger">こちらは投稿の確認画面なので実際に投稿は行われていません。</p>
+    <p class="text-danger">こちらは投稿の確認画面なので実際の投稿は行われていません。またこちらの画面から編集することはできません。</p>
     <p>ただいま下記の内容で投稿されています。</p>
     {{-- DB::table('worker_list')->where('work_id',$work_id)->value('name') --}}
     <table class="table table-bordered  table-hover">
