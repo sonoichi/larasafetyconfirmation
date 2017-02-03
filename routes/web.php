@@ -42,10 +42,10 @@ Route::post('/charge/list', 'LoginController@postList');
 //Route::get('/employee/post','SafeController@store'); //get Errorになる
 Route::post('/employee/post','SafeController@store');
 
-//投稿後の確認画面
+// 投稿後の確認画面
 Route::get('/employee/post', 'SafeController@postconfirm');
-
-
+// 投稿画面での確認画面
+Route::get('/employee/check','SafeController@postcheck');
 
 //仮：DB接続確認用ルート
 

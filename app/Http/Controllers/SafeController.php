@@ -69,5 +69,10 @@ class SafeController extends Controller
             //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }
        // return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
-    }    
+    } 
+
+    public function postcheck(){
+        $work_id = Session::get('work_id');
+        return view('employee.postconfirm',compact('work_id'));
+    }
 }

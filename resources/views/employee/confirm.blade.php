@@ -20,8 +20,6 @@
       <p  class="" style="text-align:right;">こんにちは、{{ DB::table('worker_list')->where('work_id', Session::get('work_id'))->value('name')  }}さん</p>
     </section>
 
-
-
    {!! Form::open(['action' => 'SafeController@store', 'id' => 'confirmForm']) !!}
    <!--{!! Form::open(['url' => '../home']) !!}-->
         {{ csrf_field() }}
@@ -68,10 +66,11 @@
                 <!--<a class="btn btn-default" href="{{ action('SafeController@postconfirm') }}">
                 確認
                 </a>-->
-            
         </div>
     {!! Form::close() !!}
-
+    <div style="text-align:right">
+      <a href="{{action('SafeController@postcheck')}}" style="margin:0 1.6em 1.6em 1.6em;" class="btn btn-default">投稿確認</a>
+    </div>
 </div>
 
 @endsection
