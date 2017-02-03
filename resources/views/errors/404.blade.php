@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>404 Error</title>
+        <title>404エラー</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -33,7 +33,7 @@
 
             .title {
                 font-size: 48px;
-                margin-bottom: 40px;
+                margin: 1.4em;
                 box-shadow: 0px 10px 10px;
             }      
         </style>

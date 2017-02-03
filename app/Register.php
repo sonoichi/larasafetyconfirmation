@@ -9,7 +9,6 @@ class Register extends Model
     //
     protected $table = 'users';
     public $timestamps = false;
-    protected $fillable = ['work_id', 'name', 'email', 'tell','password'];
-
+    protected $fillable = ['work_id', 'name', 'email', 'tell','password','department'];
 
 }

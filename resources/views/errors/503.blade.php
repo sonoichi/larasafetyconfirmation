@@ -32,15 +32,16 @@
             }
 
             .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
+                font-size: 48px;
+                margin: 1.4em;
+                box-shadow: 0px 10px 10px;
+            }    
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">現在サーバメンテナンス中のため<br>ご利用できません</div>
             </div>
         </div>
     </body>

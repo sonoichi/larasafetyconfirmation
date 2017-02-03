@@ -53,7 +53,8 @@ class RegisterController extends Controller
             'name' => 'required|max:30|',
             'email' => 'required|email|max:30|unique:users,email',
             'password' => 'required|min:8|max:8|confirmed',
-            'work_id' => 'required|alpha_num|regex:/^[!-~]+$/|unique:worker_list,work_id'
+            'work_id' => 'required|alpha_num|regex:/^[!-~]+$/|unique:worker_list,work_id',
+            'department'=> 'required'
         ],[
             'name.required' => '名前が未入力です',
             'name.max' => '名前は最大30文字です',
@@ -68,7 +69,8 @@ class RegisterController extends Controller
             'password.required' => 'パスワードが未入力です',
             'password.min' => 'パスワードは8文字です',
             'password.max' => 'パスワードは8文字です',
-            'password.confirmed' => 'パスワードが一致しません'
+            'password.confirmed' => 'パスワードが一致しません',
+            'department.required' => '所属を選んでください'
         ]);
         return $val;
     }

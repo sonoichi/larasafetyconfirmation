@@ -24,6 +24,9 @@
                       @if ($errors->has('work_id'))
                         <li><strong class="text-danger">{{ $errors->first('work_id') }}</strong></li>
                       @endif
+                      @if ($errors->has('department'))
+                        <li><strong class="text-danger">{{ $errors->first('department') }}</strong></li>
+                      @endif
                       @if ($errors->has('name'))
                         <li><strong class="text-danger">{{ $errors->first('name') }}</strong></li>
                       @endif
@@ -50,13 +53,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('department') ? ' has-error' : '' }}">
                             <label for="department" class="col-md-4 control-label">所属</label>
 
                             <div class="col-md-6">
-                                <!--<input id="department" type="text" class="form-control" name="department" value="{{ old('department') }}" autofocus>-->
                                 <select class="form-control" name="department">
-                                    <option value="" checked>所属を選んでください</option>
+                                    <option value="">所属を選んでください</option>
                                     <option value="営業">営業</option>{{-- そのうちループさせる --}}
                                     <option value="営業第二">営業第二</option>
                                     <option value="営業第三">営業第三</option>
