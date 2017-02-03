@@ -12,6 +12,7 @@
   
   <p>編集中の社員の安否情報</p>
 <div class="underline">
+  <div class="table-responsive">
     <table class="table">
     <thead>
         <tr>
@@ -32,6 +33,7 @@
         <tr>
     @endforeach
     </table>
+  </div>
 </div>
 
 <h2 class="bleft">編集フォーム</h2>
@@ -46,8 +48,11 @@
     <h3> <b>状況確認</b></h3>
     <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
         <div class="col-md-12">
+            <br class="visible-xs">
             <input id="noReport" type="radio" name="safety" value="報告なし">報告なし <i class="icon-user-unfollow"></i>　　　　
+            <br class="visible-xs">
             <input id="good" type="radio" name="safety" value="問題ない">問題ない <i class="icon-like"></i>　　　　
+            <br class="visible-xs">
             <input id="bad" type="radio" name="safety" value="問題あり">問題あり <i class="icon-dislike"></i>
             <!--<p class="alert-info">* ボタンが選択されない場合は報告なしになります。</p>-->
             <p></p>

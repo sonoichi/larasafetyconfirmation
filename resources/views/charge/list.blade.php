@@ -104,6 +104,7 @@
       <td></td>
     </tr>
   </thead>
+{{-- タブ内のループをなんとかしたい --}}
 @foreach($users as $worker_list)
 @if(($worker_list->department)=='営業') 
 <tr>
@@ -156,7 +157,11 @@
       <td class="manager">{{$worker_list->department}}</td>
       <td class="manager">{{$worker_list->manager_name}}</td>
       <td class="manager">{{$worker_list->manager_tell}}</td>
-      <td>{{$worker_list->safety}}</td>
+      @if(($worker_list->safety) == '報告なし')
+        <td class="text-danger">{{$worker_list->safety}}</td>
+      @else
+        <td>{{$worker_list->safety}}</td>
+      @endif
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
@@ -195,7 +200,11 @@
       <td class="manager">{{$worker_list->department}}</td>
       <td class="manager">{{$worker_list->manager_name}}</td>
       <td class="manager">{{$worker_list->manager_tell}}</td>
-      <td>{{$worker_list->safety}}</td>
+      @if(($worker_list->safety) == '報告なし')
+        <td class="text-danger">{{$worker_list->safety}}</td>
+      @else
+        <td>{{$worker_list->safety}}</td>
+      @endif
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
@@ -234,7 +243,11 @@
       <td class="manager">{{$worker_list->department}}</td>
       <td class="manager">{{$worker_list->manager_name}}</td>
       <td class="manager">{{$worker_list->manager_tell}}</td>
-      <td>{{$worker_list->safety}}</td>
+      @if(($worker_list->safety) == '報告なし')
+        <td class="text-danger">{{$worker_list->safety}}</td>
+      @else
+        <td>{{$worker_list->safety}}</td>
+      @endif
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif
@@ -273,7 +286,11 @@
       <td class="manager">{{$worker_list->department}}</td>
       <td class="manager">{{$worker_list->manager_name}}</td>
       <td class="manager">{{$worker_list->manager_tell}}</td>
-      <td>{{$worker_list->safety}}</td>
+      @if(($worker_list->safety) == '報告なし')
+        <td class="text-danger">{{$worker_list->safety}}</td>
+      @else
+        <td>{{$worker_list->safety}}</td>
+      @endif
       <td><a href="edit/{{$worker_list->work_id}}">編集</a></td>
 </tr>
 @endif

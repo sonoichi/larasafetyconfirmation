@@ -18,7 +18,7 @@
 @section('content')
 <div class="container" style="text-align:center;">
   <div class="jumbotron" style="margin-top:2em">
-    <h2><span class="underline"><i class="icon-call-out"></i> 災害安否確認アプリ <i class="icon-call-in"></i></span></h2>
+    <h2><span class="underline"><i class="icon-call-out hidden-xs"></i> 災害安否確認アプリ <i class="icon-call-in hidden-xs"></i></span></h2>
     <!--<p>社員ID:{{Session::get('work_id')}}</p>-->
     <p style="margin-top:1.2em;">下記画面より利用する項目を選択してください</p>
     <p><a class="btn btn-default" href="{{ action('LoginController@employee') }}" title="安否情報の登録はこちらから">一般用</a></p><br/>

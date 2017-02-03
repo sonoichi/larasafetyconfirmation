@@ -15,6 +15,7 @@
   <div class="" style="margin-top:2em;">
     <p>下記の内容で投稿されています</p>
     {{-- DB::table('worker_list')->where('work_id',$work_id)->value('name') --}}
+    <div class="table-responsive">
     <table class="table table-bordered  table-hover">
     <thead class="thead-default">
       <tr>
@@ -35,6 +36,7 @@
       </tr>
     </tbody>
     <table>
+    </div>
     {{-- 管理者コメント --}}
     @if(DB::table('safe_info')->where('work_id',$work_id)->where('manager_comment','!=','')->count('manager_comment'))
       <h4 style="text-align:left;" class="bleft">管理者からコメントがきています</h4>
