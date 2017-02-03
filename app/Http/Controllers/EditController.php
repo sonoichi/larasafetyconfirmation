@@ -30,6 +30,7 @@ class EditController extends Controller
         return view('charge/list',compact('users'));
     }
 
+    // ログアウト
     public function link(){
         if(Session::get('work_id')){
             return redirect('/');

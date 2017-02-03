@@ -73,7 +73,8 @@
             <p></p>
         </div>
     </div>
-
+        <!-- 管理者投稿時間 -->
+        <input id="manager_to" type="hidden" class="form-control" name="manager_to" value="{{Session::get('editManager_comment')}}">
     <div style="text-align:left" class="form-group">
         <div class="col-md-12">
             <button id="opener" type="button" class="edit btn btn-primary">

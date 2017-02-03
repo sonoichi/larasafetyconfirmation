@@ -19,7 +19,7 @@ class SafeInfo extends Migration
             $table->string('comment');
             $table->string('manager_coment');
             $table->timestamp('date');
-            $table->timestamp('manager_at');
+            $table->timestamp('manager_to');
         });
     }
 

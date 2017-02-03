@@ -21,6 +21,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Redirect;
 use Session;
 use Mail;
+use PDO;
 // メソッド一覧
 /*
   概要
@@ -80,6 +81,11 @@ class LoginController extends Controller
     // employee/login -> employee/confirm
     public function postlogin()
     {   
+
+        //DB接続チェック [MySQL]
+  
+
+
         $credentials = [
             'work_id'=>Input::get('work_id'),
             'password'=>Input::get('password')
@@ -135,8 +141,6 @@ class LoginController extends Controller
             return redirect('/');
         }
         //return Session::get('work_id');
-
-
         $users = DB::table('safe_info')
           ->join('worker_list','safe_info.work_id', '=', 'worker_list.work_id')
           ->whereNotIn('safe_info.safety', ['問題ない'])
@@ -220,6 +224,7 @@ class LoginController extends Controller
         $editUser = DB::table('safe_info')->where('work_id',$id)->get();
         Session::put('editWorker', $editUser); // 編集用ユーザーID :: view中の表示に利用しているので下手にいじれない
 
+        // どんどん増える
         $editEditWorker_id = DB::table('safe_info')->where('work_id',$id)->value('work_id');
         Session::put('editWorker_id', $editEditWorker_id); //個別データ
         $editEditSafety = DB::table('safe_info')->where('work_id',$id)->value('safety');
@@ -228,7 +233,9 @@ class LoginController extends Controller
         Session::put('editComment', $editComment); //個別データ
         $editManager_comment = DB::table('safe_info')->where('work_id',$id)->value('manager_comment');
         Session::put('editManager_comment', $editManager_comment); //個別データ
-        
+        $editManager_to = DB::table('safe_info')->where('work_id',$id)->value('manager_to');
+        Session::put('editManager_to', $editManager_to); //個別データ
+
         // 確認用 return Session::get('editWorker');
         
          return view('charge.edit',compact('editUser','editWorker_id','editSafety','editComment'));
