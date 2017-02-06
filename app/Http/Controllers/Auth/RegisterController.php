@@ -49,6 +49,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        \Session::flash('flash_check', 'checked');
         $val = Validator::make($data, [
             'name' => 'required|max:30|',
             'email' => 'required|email|max:30|unique:users,email',
@@ -83,6 +84,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
         Lists::create([
             'name' => $data['name'],
             'work_id' => $data['work_id'],
@@ -114,6 +116,8 @@ class RegisterController extends Controller
             'hoge' => 'hogehoge',
         ];
         Mail::to($options['to'])->send(new HogeShipped($options, $data));
+
+
     }
 
 }

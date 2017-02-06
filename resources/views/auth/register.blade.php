@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container" style="margin-top:2em">
+<div class="contain0er" style="margin-top:2em">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -57,13 +57,13 @@
                             <label for="department" class="col-md-4 control-label">所属</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" name="department">
+                                <select id="department" class="form-control" name="department">
                                     <option value="">所属を選んでください</option>
-                                    <option value="営業">営業</option>{{-- そのうちループさせる --}}
-                                    <option value="営業第二">営業第二</option>
-                                    <option value="営業第三">営業第三</option>
-                                    <option value="営業第四">営業第四</option>
-                                    <option value="営業第五">営業第五</option>
+                                    <option value="営業" {{ old('department')=="営業" ? 'selected':'' }}>営業</option>{{-- そのうちループさせる --}}
+                                    <option value="営業第二" {{ old('department')=="営業第二" ? 'selected':'' }}>営業第二</option>
+                                    <option value="営業第三" {{ old('department')=="営業第三" ? 'selected':'' }}>営業第三</option>
+                                    <option value="営業第四" {{ old('department')=="営業第四" ? 'selected':'' }}>営業第四</option>
+                                    <option value="営業第五" {{ old('department')=="営業第五" ? 'selected':'' }}>営業第五</option>
                                 </select>
                                 <!--@if ($errors->has('department'))
                                     <span class="help-block">
@@ -170,6 +170,7 @@ $( "#opener" ).click(function() {
       }
     });
 });
- 
+
+
 </script>	
 @endsection
