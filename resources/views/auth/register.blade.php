@@ -125,8 +125,8 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6">
-                                <button id="opener" type="button" class="registBtn btn btn-primary">
+                            <div class="col-md-offset-2 col-md-6">
+                                <button id="opener" type="button" class="registBtn btn btn-primary" style="">
                                     登録
                                 </button>
                             <!-- 確認ダイアログ -->
