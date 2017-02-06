@@ -203,7 +203,7 @@ class LoginController extends Controller
     public function getedit($id){
         //return Session::all();
         if(!Session::has('work_id')){
-          Session::forget('work_id');
+          Session::flush();
           return redirect('/');
           //return '<h1 style="margin:2em auto;text-align:center">ログインしていない状態では閲覧することはできません</h1>';
         }else if((DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('name')) !== (DB::table('worker_list')->where('work_id',Session::get('work_id'))->value('manager_name')) ){
