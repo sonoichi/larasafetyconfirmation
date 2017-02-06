@@ -311,8 +311,6 @@ class LoginController extends Controller
         }
 
 
-
-
 // 以下検証用に作ったもの
     public function dbshow(){
 

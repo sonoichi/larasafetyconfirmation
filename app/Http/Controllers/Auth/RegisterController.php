@@ -92,6 +92,7 @@ class RegisterController extends Controller
             'password' => ($data['password']),
             'department' => ($data['department']),
             'manager_name' => (DB::table('worker_list')->where('department' ,$data['department'])->value("manager_name")),
+            'manager_tell' => (DB::table('worker_list')->where('department' ,$data['department'])->value("manager_tell")),
         ]);
 
         return User::create([
