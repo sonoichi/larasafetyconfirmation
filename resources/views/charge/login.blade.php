@@ -62,8 +62,8 @@
                 @endif-->
             </div>
         </div>
-<!--
-        <div class="form-group">
+
+        <!--<div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <div class="checkbox">
                     <label>
@@ -71,8 +71,8 @@
                     </label>
                 </div>
             </div>
-        </div>
--->
+        </div>-->
+
         <div class="form-group">
             <div class="" style="text-align:center">
                 <button type="submit" class="btn btn-primary">
