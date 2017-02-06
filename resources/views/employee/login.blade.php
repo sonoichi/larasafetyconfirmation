@@ -88,9 +88,9 @@
                 <button type="submit" class="btn btn-primary">
                     ログイン
                 </button>
-                <a class="btn btn-danger"  style="margin:0 1.4em">
+                <button type="reset" class="btn btn-danger"  style="margin:0 1.4em">
                    リセット
-                </a>
+                </button>
                 <!--<a class="btn btn-link" href="{{ url('/password/reset') }}">
                     パスワードを忘れてしまった?
                 </a>-->

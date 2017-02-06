@@ -86,9 +86,9 @@
             <button id="opener" type="button" class="edit btn btn-primary">
                 編集
             </button>
-            <a class="btn btn-danger" style="margin:0 1.4em;">
+            <button type="reset" class="btn btn-danger" style="margin:0 1.4em;">
                リセット
-            </a>
+            </button>
           </div>
             <!-- 確認ダイアログ -->
                     <div id="dialog">

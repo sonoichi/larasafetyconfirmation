@@ -57,9 +57,9 @@
                   <button style="margin:20px;" id="opener" type="button" class="confirmCheck btn btn-primary">
                     送信
                   </button>
-                  <a class="btn btn-danger">
+                  <button type="reset" class="btn btn-danger">
                     リセット
-                  </a>
+                  </button>
                   </div>
                 </div>
                 <!-- 確認ダイアログ -->
