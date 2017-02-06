@@ -84,18 +84,20 @@
         </div>
 -->
         <div class="form-group">
-            <div class="col-md-8 col-md-offset-4">
-                <button type="submit" style="box-shadow: 0px 2px 5px;" class="btn btn-primary">
+            <div class="" style="text-align:center">
+                <button type="submit" class="btn btn-primary">
                     ログイン
                 </button>
-
+                <a class="btn btn-danger"  style="margin:0 1.4em">
+                   リセット
+                </a>
                 <!--<a class="btn btn-link" href="{{ url('/password/reset') }}">
                     パスワードを忘れてしまった?
                 </a>-->
             </div>
         </div>
     </form>
-        <div style="text-align:right; margin:0 2em 2em auto">
+        <div style="text-align:right; margin:0 3em 1.5em auto">
           <a class="btn btn-default" href="{{ url('../') }}">戻る</a>
         </div>
 </div>

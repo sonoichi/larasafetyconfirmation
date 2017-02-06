@@ -53,10 +53,13 @@
         <div class="form-group">
             <input id="date" type="hidden" class="form-control" name="date">
                 <div class="">
-                  <div style="" class="">
-                  <button style="margin:40px;" id="opener" type="button" class="confirmCheck btn btn-primary">
+                  <div style="text-align:center" class="">
+                  <button style="margin:20px;" id="opener" type="button" class="confirmCheck btn btn-primary">
                     送信
                   </button>
+                  <a class="btn btn-danger">
+                    リセット
+                  </a>
                   </div>
                 </div>
                 <!-- 確認ダイアログ -->

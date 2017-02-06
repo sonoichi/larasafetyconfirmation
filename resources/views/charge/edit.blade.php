@@ -71,7 +71,7 @@
 
     <h3> <b>管理者からのコメント</b></h3>
     <div class="form-group{{ $errors->has('manager_comment') ? ' has-error' : '' }}">
-        <label for="manager_comment" class="col-md-2 control-label">▼ 管理者コメントを残す</label>
+        <label for="manager_comment" class="col-md-2 col-lg-12 control-label">▼ 管理者コメントを残す</label>
 
         <div class="col-md-12">
             <input id="manager_comment" type="manager_comment" class="form-control" name="manager_comment" value="{{Session::get('editManager_comment')}}">
@@ -82,9 +82,14 @@
         <input id="manager_to" type="hidden" class="form-control" name="manager_to" value="{{Session::get('editManager_comment')}}">
     <div style="text-align:left" class="form-group">
         <div class="col-md-12">
+          <div style="text-align:center">
             <button id="opener" type="button" class="edit btn btn-primary">
                 編集
             </button>
+            <a class="btn btn-danger" style="margin:0 1.4em;">
+               リセット
+            </a>
+          </div>
             <!-- 確認ダイアログ -->
                     <div id="dialog">
                     <p>登録しても宜しいでしょうか？</p>

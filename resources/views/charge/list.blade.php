@@ -62,7 +62,7 @@
 <p style="text-align:right">タブメニューより
 閲覧したい部門を選んでください。</p>
   <ul class="nav nav-tabs">
-    <li class="nav-item">
+    <li class="nav-item active">
       <a href="#tab1" class="nav-link navbar-default hidden-xs" data-toggle="tab" >営業</a>
       <a title="営業" href="#tab1" class="nav-link navbar-default visible-xs" data-toggle="tab" >営</a>
     </li>
@@ -85,7 +85,7 @@
   </ul>
   <!--タブの中身-->
   <div class="tab-content" style="margin-bottom:2.4em;">
-    <div id="tab1" class="tab-pane">
+    <div id="tab1" class="tab-pane active">
       <!--Tab1の内容-->
   <div class="table-responsive">
   <table class="table table-striped" style="margin:0 12px;">

@@ -45,7 +45,9 @@
       <p style="text-align:left; margin-left:1.6em;">[管理者投稿時間]：{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_to') }}
       <br/>　　　　　　[コメント]：{{ DB::table('safe_info')->where('work_id',$work_id)->value('manager_comment')  }}</p>
     @endif
-    <a style="margin-bottom:1.4em;" class="btn btn-primary" href="{{ url('employee/confirm') }}">戻る</a>
+    <div style="text-align:center">
+      <a style="margin-bottom:1.4em;" class="btn btn-primary" href="{{ url('employee/confirm') }}">戻る</a>
+    </div>
   </div>
   
 </div>
